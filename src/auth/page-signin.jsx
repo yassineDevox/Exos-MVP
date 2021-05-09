@@ -2,70 +2,101 @@ import React, { Component } from "react";
 import { ForgetPass_UI } from "../components/forget-pass";
 import { Signin_UI } from "../components/signin";
 import { Signup_UI } from "../components/signup";
-import './../assets/css/signin.css';
+import UserModel from "../models/model-user";
+import "./../assets/css/signin.css";
 
 export default class SigninPage extends Component {
-
-  constructor(){
-      super();
-      this.state ={
-        mail:"",
-        mdp:"",
-      } 
-  }  
+  constructor() {
+    super();
+    this.state = {
+      mail: "",
+      mdp: "",
+      newUser: new UserModel(),
+      err:""
+    };
+  }
   render() {
     return (
       <main id="auth" class="row text-sm-center text-md-start p-5 mx-auto mt-4">
         <section class="col-1"></section>
         {/* Signin part */}
-        <Signin_UI 
-            handleChange={this.onChangeInput} 
-            handleSubmit={this.onSubmitSignin}
+        <Signin_UI
+          handleChange={this.onChangeInput}
+          handleSubmit={this.onSubmitSignin}
         />
         {/* modals */}
-        <Signup_UI/>
-        <ForgetPass_UI/>
+        <Signup_UI
+          handleChange={this.onChangeInput_UP}
+          handleSubmit={this.onSubmitSignup}
+        />
+        <ForgetPass_UI />
       </main>
     );
   }
 
-    doSignIn = () => {
-        const {mail,mdp} = this.state;
-        
-    }
+  onChangeInput_UP = (e) => {
+    let u = this.state.newUser;
+    u[e.target.name] = e.target.value;
+    this.setState({newUser:u});
+  };
 
-    formIsValid = (formName)=>{
+  onSubmitSignup = (e) => {
+    e.preventDefault();
+    if (this.formIsValid("UP")) this.doSignUp();
+    else alert("error signup");
+  };
 
-        switch (formName) {
-            case "IN":
-                {
-                    const {mail,mdp} = this.state;
-                    if(mail=="" || mdp=="") return false
-                    return true;
+  doSignUp = () => {
+    console.log(this.state.newUser);
+  };
 
-                }break;
-            case "UP":
-                {
+  doSignIn = () => {
+    const { mail, mdp } = this.state;
+  };
 
-                }break;  
-
-            default:
-                break;
+  formIsValid = (formName) => {
+    switch (formName) {
+      case "IN":
+        {
+          const { mail, mdp } = this.state;
+          if (mail == "" || mdp == "") return false;
+          return true;
         }
+      case "UP":
+        {
+          //empty
+          let u = this.state.newUser;
+          
+          if( Object.keys(u).some( k => u[k]=="" ) ) {
+            this.setState({err:"veuillez remplir toute les champs "})
+            return false;
+          }
+          
+
+          //password criteria
+          if(! u.password.length >= 8){
+            this.setState({err:"veuillez saisir un mot de pass avec plus de 8 caractéres"})
+            return false;
+          }
+
+          return true;
+
+        }
+
+      default:
+        break;
     }
+  };
 
-    onChangeInput = (e) => {
-        let name = e.target.name;
-        let value = e.target.value;
-        this.setState({[name]:value});
-    }
+  onChangeInput = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+    this.setState({ [name]: value });
+  };
 
-    onSubmitSignin = (e)=>{
-        e.preventDefault();
-        if(this.formIsValid("IN")) this.doSignIn();
-        else alert("error");
-    }
-
-
-
+  onSubmitSignin = (e) => {
+    e.preventDefault();
+    if (this.formIsValid("IN")) this.doSignIn();
+    else alert("error");
+  };
 }

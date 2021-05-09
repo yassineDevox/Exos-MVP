@@ -1,6 +1,7 @@
 import React from "react";
+import LevelStudyEnum from "../models/enum-level";
 
-export const Signup_UI = () => {
+export const Signup_UI = (props) => {
   return (
     <div
       className="modal fade"
@@ -27,56 +28,66 @@ export const Signup_UI = () => {
           </div>
           <div className="modal-body">
             {/* signup form */}
-            <form>
+            <form onSubmit={props.handleSubmit}>
               <div className="form-floating mb-3">
                 <input
+                onChange = {props.handleChange}
                   type="text"
                   className="form-control"
                   id="nom"
-                  placeholder="nom"
+                  name="firstname"
+                  placeholder="firstname"
                 />
                 <label htmlFor="nom">Nom </label>
               </div>
               <div className="form-floating mb-3">
                 <input
+                onChange = {props.handleChange}
                   type="text"
                   className="form-control"
                   id="pren"
                   placeholder="pren"
+                  name="lastname"
                 />
                 <label htmlFor="pren">Prénom </label>
               </div>
               <div className="form-floating mb-3">
                 <input
+                onChange = {props.handleChange}
                   type="email"
                   className="form-control"
                   id="mail"
                   placeholder="mail"
+                  name="email"
                 />
                 <label htmlFor="mail">Address mail</label>
               </div>
               <div className="form-floating mb-3">
                 <input
+                onChange = {props.handleChange}
                   type="password"
                   className="form-control"
                   id="floatingPassword"
                   placeholder="Password"
+                  name="password"
                 />
                 <label htmlFor="floatingPassword">Mot de passe</label>
               </div>
               <select
                 className="form-select mb-3"
-                aria-label="Default select example"
+                name="level"
+                onChange={props.handleChange}
               >
                 <option selected>Niveau d'étude</option>
-                <option value={1}>Tronc Commun</option>
-                <option value={2}>1er année Bac</option>
-                <option value={3}>2eme année Bac</option>
-                <option value={3}>Université ou Ecole</option>
+                <option value={LevelStudyEnum.COLLEGE}>Collége</option>
+                <option value={LevelStudyEnum.TC}>Tronc Commun</option>
+                <option value={LevelStudyEnum.Bac_1}>1er année Bac</option>
+                <option value={LevelStudyEnum.Bac_2}>2eme année Bac</option>
+                <option value={LevelStudyEnum.SUP}>Université ou Ecole</option>
               </select>
               <br />
               <div className="text-center">
-                <button className="btn btn-success btn-lg" type="button">
+                <button className="btn btn-success btn-lg" type="submit">
                   Inscription
                 </button>
               </div>
