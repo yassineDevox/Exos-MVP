@@ -31,9 +31,13 @@ export const Signup_UI = (props) => {
             <form onSubmit={props.handleSubmit}>
               <div className="form-floating mb-3">
                 <input
-                onChange = {props.handleChange}
+                  onChange={props.handleChange}
                   type="text"
-                  className="form-control"
+                  className={
+                    props.err != ""
+                      ? " form-control is-invalid"
+                      : "form-control"
+                  }
                   id="nom"
                   name="firstname"
                   placeholder="firstname"
@@ -42,9 +46,13 @@ export const Signup_UI = (props) => {
               </div>
               <div className="form-floating mb-3">
                 <input
-                onChange = {props.handleChange}
+                  onChange={props.handleChange}
                   type="text"
-                  className="form-control"
+                  className={
+                    props.err != ""
+                      ? " form-control is-invalid"
+                      : "form-control"
+                  }
                   id="pren"
                   placeholder="pren"
                   name="lastname"
@@ -53,9 +61,13 @@ export const Signup_UI = (props) => {
               </div>
               <div className="form-floating mb-3">
                 <input
-                onChange = {props.handleChange}
+                  onChange={props.handleChange}
                   type="email"
-                  className="form-control"
+                  className={
+                    props.err != ""
+                      ? " form-control is-invalid"
+                      : "form-control"
+                  }
                   id="mail"
                   placeholder="mail"
                   name="email"
@@ -64,9 +76,13 @@ export const Signup_UI = (props) => {
               </div>
               <div className="form-floating mb-3">
                 <input
-                onChange = {props.handleChange}
+                  onChange={props.handleChange}
                   type="password"
-                  className="form-control"
+                  className={
+                    props.err != ""
+                      ? " form-control is-invalid"
+                      : "form-control"
+                  }
                   id="floatingPassword"
                   placeholder="Password"
                   name="password"
@@ -74,7 +90,11 @@ export const Signup_UI = (props) => {
                 <label htmlFor="floatingPassword">Mot de passe</label>
               </div>
               <select
-                className="form-select mb-3"
+                className={
+                  props.err != ""
+                    ? "  form-select mb-3 is-invalid"
+                    : "form-select mb-3 "
+                }
                 name="level"
                 onChange={props.handleChange}
               >
@@ -93,6 +113,13 @@ export const Signup_UI = (props) => {
                 >
                   Inscription
                 </button>
+                <span
+                  className={
+                    props.err != "" ? "text-center text-danger mb-0" : "d-none"
+                  }
+                >
+                  {props.err}
+                </span>
               </div>
             </form>
             {/* /signup form */}

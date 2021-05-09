@@ -18,7 +18,9 @@ export const Signin_UI = (props) => {
           <div className="form-floating mb-3">
             <input
               type="email"
-              className="form-control"
+              className={
+                props.err != "" ? " form-control is-invalid" : "form-control"
+              }
               id="floatingInput"
               placeholder="mail"
               name="mail"
@@ -29,7 +31,9 @@ export const Signin_UI = (props) => {
           <div className="form-floating">
             <input
               type="password"
-              className="form-control"
+              className={
+                props.err != "" ? " form-control is-invalid" : "form-control"
+              }
               id="floatingPassword"
               placeholder="Password"
               name="mdp"
@@ -39,10 +43,18 @@ export const Signin_UI = (props) => {
           </div>
           <br />
           <div className="d-grid gap-2 mb-1">
-            <button type="submit" className="btn btn-primary btn-lg" >
+            <button type="submit" className="btn btn-primary btn-lg">
               Connexion
             </button>
-            <span className={props.err!=""? "text-center alert alert-danger mb-0":"d-none" }>{props.err}</span>
+            <span
+              className={
+                props.err != ""
+                  ? "text-center alert alert-danger mb-0"
+                  : "d-none"
+              }
+            >
+              {props.err}
+            </span>
           </div>
         </form>
         {/* /signin form */}
