@@ -86,8 +86,11 @@ export const Signup_UI = (props) => {
                 <option value={LevelStudyEnum.SUP}>Université ou Ecole</option>
               </select>
               <br />
-              <div className="text-center">
-                <button className="btn btn-success btn-lg" type="submit">
+              <div className="text-center d-grid gap-2">
+                <button
+                  className="btn btn-success btn-sm fw-bold"
+                  type="submit"
+                >
                   Inscription
                 </button>
               </div>

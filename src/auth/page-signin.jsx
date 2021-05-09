@@ -11,6 +11,7 @@ export default class SigninPage extends Component {
     this.state = {
       mail: "",
       mdp: "",
+      fp:"",
       newUser: new UserModel(),
       err:""
     };
@@ -29,9 +30,21 @@ export default class SigninPage extends Component {
           handleChange={this.onChangeInput_UP}
           handleSubmit={this.onSubmitSignup}
         />
-        <ForgetPass_UI />
+        <ForgetPass_UI 
+          handleChange={this.onChangeInput}
+          handleSubmit={this.onSubmitForgetPassword}
+        />
       </main>
     );
+  }
+
+  doForgetPassword = () =>{
+    alert("send verification link to this email : "+this.state.mail);
+  }
+  onSubmitForgetPassword = (e) => {
+    e.preventDefault();
+    if(this.formIsValid()) this.doForgetPassword()
+    else alert("error mail");
   }
 
   onChangeInput_UP = (e) => {
@@ -66,7 +79,7 @@ export default class SigninPage extends Component {
         {
           //empty
           let u = this.state.newUser;
-          
+
           if( Object.keys(u).some( k => u[k]=="" ) ) {
             this.setState({err:"veuillez remplir toute les champs "})
             return false;
@@ -84,7 +97,9 @@ export default class SigninPage extends Component {
         }
 
       default:
-        break;
+        {
+          return this.state.fp != "";
+        }
     }
   };
 

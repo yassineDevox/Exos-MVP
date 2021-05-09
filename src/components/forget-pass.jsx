@@ -1,6 +1,6 @@
 import React from "react";
 
-export const ForgetPass_UI = () => {
+export const ForgetPass_UI = (props) => {
   return (
     <div
       className="modal fade"
@@ -27,20 +27,22 @@ export const ForgetPass_UI = () => {
           </div>
           <div className="modal-body">
             {/* forget password form */}
-            <form>
+            <form onSubmit={props.handleSubmit}>
               <div className="form-floating mb-3">
                 <input
                   type="email"
                   className="form-control"
                   id="mail"
                   placeholder="mail"
+                  name="mail"
+                  onChange={props.handleChange}
                 />
                 <label htmlFor="mail">Votre addresse mail</label>
               </div>
               <div className="text-center d-grid gap-2">
                 <button
                   className="btn btn-primary btn-sm fw-bold"
-                  type="button"
+                  type="submit"
                 >
                   Envoyer
                 </button>
