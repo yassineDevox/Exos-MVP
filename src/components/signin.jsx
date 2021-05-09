@@ -1,7 +1,7 @@
 import React from "react";
 import welcome from "../assets/images/welcome.svg";
 
-export const Signin_UI = () => {
+export const Signin_UI = (props) => {
   return (
     <>
       <section className="col-md-5 pt-md-5">
@@ -14,13 +14,15 @@ export const Signin_UI = () => {
       </section>
       <section className="border col-md-5 bg-white p-3 ">
         {/* signin form */}
-        <form>
+        <form onSubmit={props.handleSubmit}>
           <div className="form-floating mb-3">
             <input
               type="email"
               className="form-control"
               id="floatingInput"
               placeholder="mail"
+              name="mail"
+              onChange={props.handleChange}
             />
             <label htmlFor="floatingInput">Address mail</label>
           </div>
@@ -30,16 +32,18 @@ export const Signin_UI = () => {
               className="form-control"
               id="floatingPassword"
               placeholder="Password"
+              name="mdp"
+              onChange={props.handleChange}
             />
             <label htmlFor="floatingPassword">Mot de passe</label>
           </div>
           <br />
           <div className="d-grid gap-2">
-            <button className="btn btn-primary btn-lg" type="button">
+            <button type="submit" className="btn btn-primary btn-lg" >
               Connexion
             </button>
           </div>
-        </form>{" "}
+        </form>
         {/* /signin form */}
         <br />
         <div className="text-center">
@@ -61,9 +65,8 @@ export const Signin_UI = () => {
           </button>
         </div>
         <p className="text-center mt-4 lead fs-6">
-          {" "}
           <strong>Préparer</strong> vos examens <strong>en ligne</strong> avec
-          vos <strong>amis !</strong>{" "}
+          vos <strong>amis !</strong>
         </p>
       </section>
     </>
