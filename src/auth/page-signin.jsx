@@ -24,6 +24,7 @@ export default class SigninPage extends Component {
         <Signin_UI
           handleChange={this.onChangeInput}
           handleSubmit={this.onSubmitSignin}
+          err={this.state.err}
         />
         {/* modals */}
         <Signup_UI
@@ -63,6 +64,7 @@ export default class SigninPage extends Component {
     console.log(this.state.newUser);
   };
 
+  //-----signin
   doSignIn = () => {
     const { mail, mdp } = this.state;
   };
@@ -104,6 +106,9 @@ export default class SigninPage extends Component {
   };
 
   onChangeInput = (e) => {
+    //clear error msgs 
+    this.setState({err:""});
+    //set state values
     let name = e.target.name;
     let value = e.target.value;
     this.setState({ [name]: value });
@@ -112,6 +117,8 @@ export default class SigninPage extends Component {
   onSubmitSignin = (e) => {
     e.preventDefault();
     if (this.formIsValid("IN")) this.doSignIn();
-    else alert("error");
+    else {
+      this.setState({err:"Veuillez remplir toute les champs "})
+    }
   };
 }

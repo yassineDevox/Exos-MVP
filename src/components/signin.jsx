@@ -38,14 +38,14 @@ export const Signin_UI = (props) => {
             <label htmlFor="floatingPassword">Mot de passe</label>
           </div>
           <br />
-          <div className="d-grid gap-2">
+          <div className="d-grid gap-2 mb-1">
             <button type="submit" className="btn btn-primary btn-lg" >
               Connexion
             </button>
+            <span className={props.err!=""? "text-center alert alert-danger mb-0":"d-none" }>{props.err}</span>
           </div>
         </form>
         {/* /signin form */}
-        <br />
         <div className="text-center">
           <a
             href="#"
