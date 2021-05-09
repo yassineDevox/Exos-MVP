@@ -1,0 +1,18 @@
+body{
+    background:linear-gradient(170deg, #f7f5fb 50%, #fff 50%);
+    height: 100vh;
+}
+
+img.welcome{
+  width:45vh;
+  height:auto;
+  display:block;
+  margin:0 auto;
+}
+
+@media (min-width:0px) and (max-width:576px){  
+
+  main#auth{
+      text-align:center;
+  }
+}
