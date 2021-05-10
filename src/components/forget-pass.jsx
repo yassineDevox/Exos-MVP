@@ -31,7 +31,9 @@ export const ForgetPass_UI = (props) => {
               <div className="form-floating mb-3">
                 <input
                   type="email"
-                  className="form-control"
+                  className={
+                    props.err != "" ? "form-control is-invalid" : "form-control"
+                  }
                   id="mail"
                   placeholder="mail"
                   name="mail"
@@ -46,6 +48,13 @@ export const ForgetPass_UI = (props) => {
                 >
                   Envoyer
                 </button>
+                <span
+                  className={
+                    props.err == "" ? "d-none" : "text-center text-danger"
+                  }
+                >
+                  {props.err}
+                </span>
               </div>
             </form>
             {/* /forget password form */}

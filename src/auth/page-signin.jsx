@@ -37,6 +37,7 @@ export default class SigninPage extends Component {
         <ForgetPass_UI 
           handleChange={this.onChangeInput}
           handleSubmit={this.onSubmitForgetPassword}
+          err={this.state.errFp}
         />
       </main>
     );
@@ -49,7 +50,9 @@ export default class SigninPage extends Component {
   onSubmitForgetPassword = (e) => {
     e.preventDefault();
     if(this.formIsValid()) this.doForgetPassword()
-    else alert("error mail");
+    else {
+      this.setState({errFp:"Veuillez remplir le champ email !"})
+    }
   }
 
   onChangeInput_UP = (e) => {
