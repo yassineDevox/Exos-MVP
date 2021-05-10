@@ -4,7 +4,7 @@ import welcome from "../assets/images/welcome.svg";
 export const Signin_UI = (props) => {
   return (
     <>
-      <section className="col-md-5 pt-md-5">
+      <section className="col-md-6 pt-md-5">
         <h1 className="text-primary fw-bold">Exos</h1>
         <p className="lead ">
           Avec <strong>Exos</strong>, partagez vos exercices et travailler
@@ -12,6 +12,7 @@ export const Signin_UI = (props) => {
         </p>
         <img className="welcome" src={welcome} alt="welcome" />
       </section>
+      <section class=" col-md-1 "></section>
       <section className="border col-md-5 bg-white p-3 ">
         {/* signin form */}
         <form onSubmit={props.handleSubmit}>

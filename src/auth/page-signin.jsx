@@ -21,26 +21,30 @@ export default class SigninPage extends Component {
   }
   render() {
     return (
-      <main id="auth" class="row text-sm-center text-md-start p-5 mx-auto mt-4">
-        <section class="col-1"></section>
-        {/* Signin part */}
-        <Signin_UI
-          handleChange={this.onChangeInput}
-          handleSubmit={this.onSubmitSignin}
-          err={this.state.errIn}
-        />
-        {/* modals */}
-        <Signup_UI
-          handleChange={this.onChangeInput_UP}
-          handleSubmit={this.onSubmitSignup}
-          err={this.state.errUp}
-        />
-        <ForgetPass_UI
-          handleChange={this.onChangeInput}
-          handleSubmit={this.onSubmitForgetPassword}
-          err={this.state.errFp}
-        />
-      </main>
+      <div className="wrapper">
+        <main id="auth" class="row text-sm-center text-md-start p-sm-5">
+          {/* Signin part */}
+          <Signin_UI
+            handleChange={this.onChangeInput}
+            handleSubmit={this.onSubmitSignin}
+            err={this.state.errIn}
+          />
+          {/* modals */}
+          <Signup_UI
+            handleChange={this.onChangeInput_UP}
+            handleSubmit={this.onSubmitSignup}
+            err={this.state.errUp}
+          />
+          <ForgetPass_UI
+            handleChange={this.onChangeInput}
+            handleSubmit={this.onSubmitForgetPassword}
+            err={this.state.errFp}
+          />
+        </main>
+        <p className="lead text-center fs-6 p-1">
+          Bienvenu Chez Exos toute drois d'auteur est réservé @Copyright 2021
+        </p>
+      </div>
     );
   }
 

@@ -10,9 +10,23 @@ img.welcome{
   margin:0 auto;
 }
 
+
+
+@media (min-width:768px){  
+  .wrapper{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height:100vh
+  }
+  .wrapper >p:last-child{padding-right:5%important}
+  
+}
 @media (min-width:0px) and (max-width:576px){  
 
   main#auth{
       text-align:center;
   }
 }
+

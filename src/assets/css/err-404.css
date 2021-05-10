@@ -1,7 +1,7 @@
-div{
+div#err-404{
     height:100vh;
 }
-img{
+div#err-404 img{
     width:50vw;
     min-width: 350px;
 }
