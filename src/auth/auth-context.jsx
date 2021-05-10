@@ -1,5 +1,6 @@
+import axios from "axios";
 import React, { Component } from "react";
-import { auth } from "../../utils/firebase";
+import { config } from "../api/url";
 
 //create authContext from React
 const AuthContext = React.createContext();
@@ -14,23 +15,22 @@ export class AuthProvider extends Component {
   }
 
   componentDidMount(){
-    auth.onAuthStateChanged((user)=>{
-      this.setState({currentUser:user})
-    })
+    
   }
 
 
-  register = (email,password) => {
-    return auth.createUserWithEmailAndPassword(email,password);
+  register = (newUser) => {
+    console.log(newUser);
+    return axios.post(config.url.AUTH.SIGNUP,newUser);
   };
 
-  //shared features
   login = (email,password) => {
-    return auth.signInWithEmailAndPassword(email,password)
+    console.log(email,password);
+    return axios.post(config.url.AUTH.SIGNIN,{email,password});
   };
 
   logout = () => {
-    return auth.signOut();
+    console.log("logout");
   };
 
   render() {
