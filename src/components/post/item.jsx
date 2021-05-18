@@ -1,20 +1,22 @@
 import React from 'react'
+import PropTypes from 'prop-types';
+import PostModel from '../../models/model-post';
 
-export const PostItem = (props) => {
+export const PostItem = ({post}) => {
     return (
         <article className="p-2 bg-white ">
             <div className="post-header d-flex justify-content-between align-items-center">
               <div className="d-flex">
                 <img
-                  src="./imgs/y.jpg"
+                  src={post.avatar}
                   alt="img"
                   className="img-circle border m-1"
                   width={50}
                 />
                 <div className="p-1">
-                  <span>{props.userFullName}</span>
+                  <span className="text-capitalize">{post.firstName+ ' '+post.lastName}</span>
                   <br />
-                  <small className="text-secondary">{props.timePublication}</small>
+                  <small className="text-secondary">{post.dateCreation}</small>
                   <br />
                 </div>
               </div>
@@ -33,10 +35,10 @@ export const PostItem = (props) => {
             </div>
             <div className="post-body">
               <p className="p-2 fs-6 pb-0">
-               {props.PostDescription}
+               {post.description}
               </p>
               <img
-                src="./imgs/exerice1.PNG"
+                src={post.content}
                 className="img-fluid mb-1"
                 alt="exerice1"
               />
@@ -45,19 +47,23 @@ export const PostItem = (props) => {
               <div className="reactions">
                 <button className="btn btn-sm">
                   <i className="far fa-thumbs-up" />
-                  {props.postNbLikes}
+                  {post.numberLikes}
                 </button>
                 <button className="btn btn-sm">
                   <i className="far fa-lightbulb" />
-                  {props.postNbSolutions}
+                  {post.numberSolution}
                 </button>
                 <button className="btn btn-sm">
                   <i className="far fa-comment" />
-                  {props.postNbComments}
+                  {post.postNbComments}
                 </button>
               </div>
               <button className="btn btn-primary btn-sm">Consulter</button>
             </div>
           </article>
     )
+}
+
+PostItem.prototype = {
+  post:PropTypes.instanceOf(PostModel)
 }

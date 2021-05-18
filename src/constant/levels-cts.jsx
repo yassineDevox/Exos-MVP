@@ -1,4 +1,5 @@
 import LevelStudyEnum from "../models/enum-level";
+import React from "react";
 
 const LEVELS = [
     { img:"",name:LevelStudyEnum.COLLEGE},
@@ -20,8 +21,8 @@ function Level(props){
 
 export default function Levels(){
     return (
-        {
-            LEVELS.map( (l,i) => <Level key={i} img={l.img} name={l.name} /> )
-        }
+        
+        LEVELS.map( (l,i) => <Level key={i} img={l.img} name={l.name} /> )
+        
     )
 }

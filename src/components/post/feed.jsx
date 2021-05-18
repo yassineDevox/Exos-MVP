@@ -1,7 +1,10 @@
 import React from "react";
 import { PostItem } from "./item";
+import PropTypes from 'prop-types';
+import PostModel from "../../models/model-post";
 
-export default Feed = (props) => {
+
+export const Feed = (props) => {
   return (
     <>
       <div>
@@ -13,7 +16,7 @@ export default Feed = (props) => {
             height={50}
             alt
           />
-          <button className="btn text-start"> Publier un exercice </button>
+          <button className="btn text-start"> Publier Un Exercice </button>
         </section>
         <section id="posts" className="mt-1">
           {props.listPost.map((post,index) => (
@@ -24,3 +27,11 @@ export default Feed = (props) => {
     </>
   );
 };
+
+Feed.propTypes = {
+  listPost:PropTypes.arrayOf(
+    PropTypes.instanceOf(PostModel)
+  ),
+}
+
+export default Feed;

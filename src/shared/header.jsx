@@ -1,6 +1,6 @@
 import React from "react";
 
-export default Header_LT = () => {
+export const Header_LT = () => {
   return (
     <header className="border d-flex justify-content-between p-1 sticky-top bg-white">
       <div className="left d-flex ms-2">
@@ -104,3 +104,5 @@ export default Header_LT = () => {
     </header>
   );
 };
+
+export default Header_LT;

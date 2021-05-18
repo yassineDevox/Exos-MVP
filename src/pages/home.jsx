@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Feed from '../components/post/feed';
 import FilterPost from '../shared/filter-post';
+import Header_LT from '../shared/header';
 import './../assets/css/home.css';
     
 export default class HomePage extends Component {
@@ -14,7 +15,7 @@ export default class HomePage extends Component {
                     {/* Filter By Level In Default */}
                     <FilterPost />
                     {/* Feed */}
-                    <Feed/>
+                    <Feed  />
                     {/* Filter By Subject */}
                     <FilterPost bySubject />
                 </main> 
