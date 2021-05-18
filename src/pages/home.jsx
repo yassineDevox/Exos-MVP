@@ -7,14 +7,16 @@ export default class HomePage extends Component {
     render() {
         return (
             <>
+            {/* HEADER */}
                 <Header_LT />
+             {/* MAIN CONTENT    */}
                 <main className="border">
-                    {/* Filter By Level  */}
-                    <FilterPost byLevel />
+                    {/* Filter By Level In Default */}
+                    <FilterPost />
                     {/* Feed */}
                     <Feed/>
-                    {/* Filter By Tags */}
-                    <FilterPost byLevel={false} />
+                    {/* Filter By Subject */}
+                    <FilterPost bySubject />
                 </main> 
             </>
         )
