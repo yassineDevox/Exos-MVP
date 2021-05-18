@@ -1,4 +1,6 @@
 import React from "react";
+import Levels from "../constant/levels-cts";
+import Subjects from "../constant/subjects-cts";
 
 export default FilterPost = (props) => {
   
@@ -9,7 +11,7 @@ export default FilterPost = (props) => {
           <img src="./imgs/home.png" className="link-icon" alt="avatar" />
           <span>{props.title}</span>
         </div>
-       
+         { props.bySubject ? <Subjects />:<Levels/> }
       </div>
     </section>
   );
