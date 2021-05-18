@@ -1,4 +1,7 @@
 import React from "react";
+import AvatarMock from "./../assets/images/y.jpg";
+import homeMock from "./../assets/images/home.png";
+import helpMock from "./../assets/images/help.png";;
 
 export const Header_LT = () => {
   return (
@@ -9,7 +12,7 @@ export const Header_LT = () => {
           {" "}
           <i className="fab fs-2 fab fa-etsy" />
         </div>
-        <div className=" search border">
+        <div className="search border">
           {" "}
           <input type="text" /> <i className="fas fs-6 fa-search" />
         </div>
@@ -17,17 +20,17 @@ export const Header_LT = () => {
           <i className="fas fs-2 fa-bars" />
           <div className="menu border p-2 d-none">
             <div className="d-flex align-items-center">
-              <img src="./imgs/y.jpg" className="sm-avatar" alt="avatar" />
+              <img src={AvatarMock} className="sm-avatar" alt="avatar" />
               <div className="user-info ms-1">
                 <h6>Yassine Devs</h6>
               </div>
             </div>
             <div className="setting-link m-1 p-1">
-              <img src="./imgs/home.png" className="link-icon" alt="avatar" />
+              <img src={homeMock} className="link-icon" alt="avatar" />
               <span> Home</span>
             </div>
             <div className="setting-link m-1 p-1">
-              <img src="./imgs/help.png" className="link-icon" alt="avatar" />
+              <img src={helpMock} className="link-icon" alt="avatar" />
               <span> Support Exos</span>
             </div>
           </div>
@@ -36,7 +39,8 @@ export const Header_LT = () => {
       <nav>
         <ul className="d-md-flex d-none nav">
           <li className="active">
-            <i className="fas fa-home" /> <span className="lead ">Home</span>{" "}
+            <i className="fas fa-home" /> 
+            <span className="lead ">Home</span>{" "}
           </li>
           <li>
             <i className="fas fa-user-friends" />{" "}
@@ -50,7 +54,7 @@ export const Header_LT = () => {
       </nav>
       <div className="right d-flex me-2">
         <div className="d-md-flex align-items-center d-none">
-          <img src="./imgs/y.jpg" className="sm-avatar" alt="avatar" />
+          <img src={AvatarMock} className="sm-avatar" alt="avatar" />
           <div className="user-info me-2 mt-1">
             <h6>Yassine Dev</h6>
           </div>
@@ -74,7 +78,7 @@ export const Header_LT = () => {
         </button>
         <div className="setting border d-none">
           <div className="d-flex align-items-center">
-            <img src="./imgs/y.jpg" className="avatar" alt="avatar" />
+            <img src={AvatarMock} className="avatar" alt="avatar" />
             <div className="user-info ms-2">
               <h5>Yassine Devs</h5>
               <p className="text-secondary small">Voir profile ?</p>

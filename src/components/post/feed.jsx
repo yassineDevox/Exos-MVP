@@ -1,16 +1,14 @@
 import React from "react";
-import { PostItem } from "./item";
-import PropTypes from 'prop-types';
-import PostModel from "../../models/model-post";
+import ListPost from "../../constant/posts-cts";
+import imgMock from "./../../assets/images/y.jpg";
 
-
-export const Feed = (props) => {
+export const Feed = () => {
   return (
     <>
       <div>
         <section id="new-post" className="p-1 bg-white mt-3">
           <img
-            src="./imgs/y.JPG"
+            src={imgMock}
             className="img-circle border m-2"
             width={50}
             height={50}
@@ -19,19 +17,11 @@ export const Feed = (props) => {
           <button className="btn text-start"> Publier Un Exercice </button>
         </section>
         <section id="posts" className="mt-1">
-          {props.listPost.map((post,index) => (
-            <PostItem post={post} key={index} />
-          ))}
+          <ListPost />
         </section>
       </div>
     </>
   );
 };
-
-Feed.propTypes = {
-  listPost:PropTypes.arrayOf(
-    PropTypes.instanceOf(PostModel)
-  ),
-}
 
 export default Feed;

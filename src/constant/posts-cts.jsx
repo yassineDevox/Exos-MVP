@@ -1,10 +1,10 @@
 import React from "react";
 import PostModel from "../models/model-post";
 import imgMock from "../assets/images/y.jpg";
-import contentMock from "../assets/images/exerice1.PNG";
+import contentMock from "../assets/images/exerice1.png";
 import SubjectEnum from "../models/enum-subjects";
 import LevelStudyEnum from "../models/enum-level";
-import { PostItem } from "../components/post/item";
+import  PostItem  from "../components/post/item";
 
 const POSTS = [
   {
@@ -17,9 +17,9 @@ const POSTS = [
       "zouhair",
       SubjectEnum.MATH,
       LevelStudyEnum.BAC_2,
-      2,
-      10,
-      0,
+      "2",
+      "10",
+      "0",
       "pub1",
       "image",
       "ui1"
@@ -46,5 +46,5 @@ const POSTS = [
 ];
 
 export default function ListPost() {
-  return POSTS.map((p, i) => <PoptItem key={i} post={p} />);
+  return POSTS.map((p, i) => <PostItem key={i} post={p} />);
 }

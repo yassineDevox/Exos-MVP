@@ -213,6 +213,17 @@
     .nav li span {
       display: none;
     }
+    .search input{display: none;}
+    .search{
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 6px 12px;
+      margin: 5px;
+      background-color: #e4e6eb;
+      cursor: pointer;
+    }
   }
   
   @media (min-width: 768px) and (max-width:920px) {
@@ -237,7 +248,7 @@
     .filter-tag {
       top: 250px !important;
     }
-  
+  .search{display: none;}
   }
   
   @media (min-width: 920px) and (max-width: 1024px) {

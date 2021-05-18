@@ -46,16 +46,17 @@ export const PostItem = ({post}) => {
             <div className="post-footer d-flex justify-content-between">
               <div className="reactions">
                 <button className="btn btn-sm">
-                  <i className="far fa-thumbs-up" />
+                  <i className="far fa-thumbs-up" />{" "}
                   {post.numberLikes}
                 </button>
                 <button className="btn btn-sm">
                   <i className="far fa-lightbulb" />
-                  {post.numberSolution}
+                  {" "}
+                   {post.numberSolution}
                 </button>
                 <button className="btn btn-sm">
                   <i className="far fa-comment" />
-                  {post.postNbComments}
+                   {" "}{post.numberComment}
                 </button>
               </div>
               <button className="btn btn-primary btn-sm">Consulter</button>
@@ -67,3 +68,5 @@ export const PostItem = ({post}) => {
 PostItem.prototype = {
   post:PropTypes.instanceOf(PostModel)
 }
+
+export default PostItem;

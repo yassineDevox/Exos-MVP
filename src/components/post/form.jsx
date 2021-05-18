@@ -46,7 +46,7 @@ export const FormPost = () => {
                 className="form-select mb-3"
                 aria-label="Default select example"
               >
-                <option selected>Matiére</option>
+                <option defaultValue>Matiére</option>
                 <option value={1}>Math</option>
                 <option value={2}>Physique</option>
                 <option value={3}>Svt</option>
@@ -73,3 +73,6 @@ export const FormPost = () => {
     </div>
   );
 };
+
+export default FormPost;
+
