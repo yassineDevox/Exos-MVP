@@ -7,8 +7,8 @@ import  PostItem  from "../components/post/item";
 const POSTS = [
   {
     ...new PostModel(
-      "../assets/images/y.jpg",
-      "../assets/images/exerice1.png",
+      "assets/images/y.jpg",
+      "/assets/images/exerice1.png",
       "10h",
       " Besoin de la solution de l'exercice 4 en matrice svp !",
       "jawadi",
