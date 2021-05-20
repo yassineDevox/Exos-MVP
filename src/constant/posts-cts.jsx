@@ -9,8 +9,8 @@ import  PostItem  from "../components/post/item";
 const POSTS = [
   {
     ...new PostModel(
-      imgMock,
-      contentMock,
+      "/src/assets/images/y.jpg",
+      "/src/assets/images/exerice1.png",
       "10h",
       " Besoin de la solution de l'exercice 4 en matrice svp !",
       "jawadi",
@@ -27,8 +27,8 @@ const POSTS = [
   },
   {
     ...new PostModel(
-      imgMock,
-      contentMock,
+      "/src/assets/images/y.jpg",
+      "/src/assets/images/exerice1.png",
       "1d",
       " Besoin de la solution de l'exercice 5 en Fonctions svp !",
       "toumi",
