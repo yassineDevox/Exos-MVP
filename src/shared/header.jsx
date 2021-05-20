@@ -14,7 +14,7 @@ export const Header_LT = () => {
         </div>
         <div className="search border">
           {" "}
-          <input type="text" /> <i className="fas fs-6 fa-search" />
+          <input type="text" placeholder="Search For Something ?"/> <i className="fas fs-6 fa-search" />
         </div>
         <div className="circle-icon d-md-none">
           <i className="fas fs-2 fa-bars" />

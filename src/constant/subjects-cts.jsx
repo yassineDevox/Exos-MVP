@@ -1,24 +1,21 @@
 import SubjectEnum from "../models/enum-subjects";
 import React from "react";
-import math from "../assets/images/math.svg";
-import computer from "../assets/images/computer.svg";
-import physic from "../assets/images/physic.png";
-import svt from "../assets/images/biology.png";
-import other from  "../assets/images/other.svg";
+
+const IMAGE_PATH = "/src/assets/images";
 
 const SUBJECTS = [
-  { img: {math}, name: SubjectEnum.MATH },
-  { img: {computer}, name: SubjectEnum.INFORMATIQUE },
-  { img: {physic}, name: SubjectEnum.PHYS },
-  { img: {svt}, name: SubjectEnum.SVT },
-  { img: {other}, name: SubjectEnum.AUTRE },
+  { img: `${IMAGE_PATH}/math.svg`, name: SubjectEnum.MATH },
+  { img: `${IMAGE_PATH}/computer.svg`, name: SubjectEnum.INFORMATIQUE },
+  { img: `${IMAGE_PATH}/physic.png`, name: SubjectEnum.PHYS },
+  { img: `${IMAGE_PATH}/biology.png`, name: SubjectEnum.SVT },
+  { img: `${IMAGE_PATH}/other.svg`, name: SubjectEnum.AUTRE },
 ];
 
 function Subject(props) {
   return (
-    <div className="setting-link m-1 p-1">
+    <div className="setting-link m-2 p-2">
       <img src={props.img} className="link-icon"/>
-      <span className="text-capitlize"> {props.name}</span>
+      <span className=" ms-1 text-capitalize"> {props.name}</span>
     </div>
   );
 }

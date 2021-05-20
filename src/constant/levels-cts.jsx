@@ -1,24 +1,21 @@
 import LevelStudyEnum from "../models/enum-level";
 import React from "react";
-import college from "../assets/images/college.png";
-import tc from "../assets/images/tc.png";
-import bac1 from "../assets/images/bac1.png";
-import bac2 from "../assets/images/bac2.png";
-import sup from "../assets/images/sup.png";
+const IMAGE_PATH = "/src/assets/images";
+
 
 const LEVELS = [
-    { img:{college},name:LevelStudyEnum.COLLEGE},
-    { img:{tc},name:LevelStudyEnum.TC},
-    { img:{bac1},name:LevelStudyEnum.BAC_1},
-    { img:{bac2},name:LevelStudyEnum.BAC_2},
-    { img:{sup},name:LevelStudyEnum.SUP}
+    { img:`${IMAGE_PATH}/college.png`,name:LevelStudyEnum.COLLEGE},
+    { img:`${IMAGE_PATH}/tc.png`,name:LevelStudyEnum.TC},
+    { img:`${IMAGE_PATH}/bac1.png`,name:LevelStudyEnum.BAC_1},
+    { img:`${IMAGE_PATH}/bac2.png`,name:LevelStudyEnum.BAC_2},
+    { img:`${IMAGE_PATH}/sup.png`,name:LevelStudyEnum.SUP}
 ]
 
 function Level(props){
     return (
-        <div className="setting-link m-1 p-1">
+        <div className="setting-link m-2 p-2">
             <img src={props.img} className="link-icon" />
-            <span className="text-capitlize"> {props.name}</span>
+            <span className="text-capitlize ms-1"> {props.name}</span>
         </div>
     )
 }
