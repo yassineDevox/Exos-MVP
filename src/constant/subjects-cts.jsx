@@ -12,7 +12,7 @@ const SUBJECTS = [
 function Subject(props) {
   return (
     <div className="setting-link m-1 p-1">
-      <img src={props.img} className="link-icon" alt={props.name} />
+      <img src={props.img} className="link-icon"/>
       <span className="text-capitlize"> {props.name}</span>
     </div>
   );

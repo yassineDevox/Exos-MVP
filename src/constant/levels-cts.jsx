@@ -4,15 +4,15 @@ import React from "react";
 const LEVELS = [
     { img:"",name:LevelStudyEnum.COLLEGE},
     { img:"",name:LevelStudyEnum.TC},
-    { img:"",name:LevelStudyEnum.Bac_1},
-    { img:"",name:LevelStudyEnum.Bac_2},
+    { img:"",name:LevelStudyEnum.BAC_1},
+    { img:"",name:LevelStudyEnum.BAC_2},
     { img:"",name:LevelStudyEnum.SUP}
 ]
 
 function Level(props){
     return (
         <div className="setting-link m-1 p-1">
-            <img src={props.img} className="link-icon" alt={props.name} />
+            <img src={props.img} className="link-icon" />
             <span className="text-capitlize"> {props.name}</span>
         </div>
     )

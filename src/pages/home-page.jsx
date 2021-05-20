@@ -14,11 +14,11 @@ export default class HomePage extends Component {
              {/* MAIN CONTENT    */}
                 <main className="border">
                     {/* Filter By Level In Default */}
-                    <FilterPost title="Filter Les Post avec Niveau d'étude " />
+                    <FilterPost title="Niveau d'étude " />
                     {/* Feed */}
                     <Feed  />
                     {/* Filter By Subject */}
-                    <FilterPost title="Filter Les Post avec Matiére " bySubject />
+                    <FilterPost title="Matiére " bySubject />
                     
                 </main> 
               {/* Modals */}

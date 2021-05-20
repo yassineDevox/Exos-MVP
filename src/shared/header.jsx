@@ -40,7 +40,7 @@ export const Header_LT = () => {
         <ul className="d-md-flex d-none nav">
           <li className="active">
             <i className="fas fa-home" /> 
-            <span className="lead ">Home</span>{" "}
+            <span className="lead "> Home</span>{" "}
           </li>
           <li>
             <i className="fas fa-user-friends" />{" "}
