@@ -1,7 +1,5 @@
 import React from "react";
 import PostModel from "../models/model-post";
-import imgMock from "/src/assets/images/y.jpg";
-import contentMock from "/src/assets/images/exerice1.png";
 import SubjectEnum from "../models/enum-subjects";
 import LevelStudyEnum from "../models/enum-level";
 import  PostItem  from "../components/post/item";
