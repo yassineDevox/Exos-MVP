@@ -1,6 +1,6 @@
 import LevelStudyEnum from "../models/enum-level";
 import React from "react";
-const IMAGE_PATH = "/src/assets/images";
+const IMAGE_PATH = "/assets/images";
 
 
 const LEVELS = [
