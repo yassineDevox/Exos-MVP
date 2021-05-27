@@ -4,7 +4,7 @@ import SubjectEnum from "../models/enum-subjects";
 import LevelStudyEnum from "../models/enum-level";
 import  PostItem  from "../components/post/item";
 import mockAvatar from "../assets/images/y.jpg";
-import mockContent from "../assets/images/exerice1.png";
+import mockContent from "../assets/images/e.png";
 
 const POSTS = [
   {
