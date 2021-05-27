@@ -1,7 +1,7 @@
 import LevelStudyEnum from "../models/enum-level";
 import React from "react";
 
-import c from `${IMAGE_PATH}/college.png`;
+import c from "../assets/images/college.png";
 
 const IMAGE_PATH = "/assets";
 
