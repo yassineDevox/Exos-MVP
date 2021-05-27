@@ -1,14 +1,17 @@
 import SubjectEnum from "../models/enum-subjects";
 import React from "react";
-
-const IMAGE_PATH = "/assets";
+import m from "../assets/images/math.svg";
+import c from "../assets/images/computer.svg";
+import p from "../assets/images/physic.png";
+import b from "../assets/images/biology.png";
+import o from "../assets/images/other.svg";
 
 const SUBJECTS = [
-  { img: `${IMAGE_PATH}/math.svg`, name: SubjectEnum.MATH },
-  { img: `${IMAGE_PATH}/computer.svg`, name: SubjectEnum.INFORMATIQUE },
-  { img: `${IMAGE_PATH}/physic.png`, name: SubjectEnum.PHYS },
-  { img: `${IMAGE_PATH}/biology.png`, name: SubjectEnum.SVT },
-  { img: `${IMAGE_PATH}/other.svg`, name: SubjectEnum.AUTRE },
+  { img: m, name: SubjectEnum.MATH },
+  { img: c, name: SubjectEnum.INFORMATIQUE },
+  { img: p, name: SubjectEnum.PHYS },
+  { img: b, name: SubjectEnum.SVT },
+  { img: o, name: SubjectEnum.AUTRE },
 ];
 
 function Subject(props) {

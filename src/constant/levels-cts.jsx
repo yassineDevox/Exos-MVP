@@ -2,16 +2,18 @@ import LevelStudyEnum from "../models/enum-level";
 import React from "react";
 
 import c from "../assets/images/college.png";
-
-const IMAGE_PATH = "/assets";
+import t from "../assets/images/tc.png";
+import b1 from "../assets/images/bac1.png";
+import b2 from "../assets/images/bac2.png";
+import s from "../assets/images/sup.png";
 
 
 const LEVELS = [
     { img:c,name:LevelStudyEnum.COLLEGE},
-    { img:`${IMAGE_PATH}/tc.png`,name:LevelStudyEnum.TC},
-    { img:`${IMAGE_PATH}/bac1.png`,name:LevelStudyEnum.BAC_1},
-    { img:`${IMAGE_PATH}/bac2.png`,name:LevelStudyEnum.BAC_2},
-    { img:`${IMAGE_PATH}/sup.png`,name:LevelStudyEnum.SUP}
+    { img:t,name:LevelStudyEnum.TC},
+    { img:b1,name:LevelStudyEnum.BAC_1},
+    { img:b2,name:LevelStudyEnum.BAC_2},
+    { img:s,name:LevelStudyEnum.SUP}
 ]
 
 function Level(props){
