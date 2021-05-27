@@ -1,7 +1,7 @@
 import SubjectEnum from "../models/enum-subjects";
 import React from "react";
 
-const IMAGE_PATH = "/assets/images";
+const IMAGE_PATH = "/assets";
 
 const SUBJECTS = [
   { img: `${IMAGE_PATH}/math.svg`, name: SubjectEnum.MATH },

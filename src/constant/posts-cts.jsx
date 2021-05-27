@@ -4,11 +4,13 @@ import SubjectEnum from "../models/enum-subjects";
 import LevelStudyEnum from "../models/enum-level";
 import  PostItem  from "../components/post/item";
 
+ROOT_PATH_IMAGES = "../../assets/";
+
 const POSTS = [
   {
     ...new PostModel(
-      "assets/images/y.jpg",
-      "/assets/images/exerice1.png",
+      ROOT_PATH_IMAGES+"y.jpg",
+      ROOT_PATH_IMAGES+"exerice1.png",
       "10h",
       " Besoin de la solution de l'exercice 4 en matrice svp !",
       "jawadi",
@@ -25,8 +27,8 @@ const POSTS = [
   },
   {
     ...new PostModel(
-      "/src/assets/images/y.jpg",
-      "/src/assets/images/exerice1.png",
+      ROOT_PATH_IMAGES+"y.jpg",
+      ROOT_PATH_IMAGES+"exerice1.png",
       "1d",
       " Besoin de la solution de l'exercice 5 en Fonctions svp !",
       "toumi",
