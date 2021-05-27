@@ -4,7 +4,7 @@ import SubjectEnum from "../models/enum-subjects";
 import LevelStudyEnum from "../models/enum-level";
 import  PostItem  from "../components/post/item";
 
-ROOT_PATH_IMAGES = "../../assets/";
+let ROOT_PATH_IMAGES = "../../assets/";
 
 const POSTS = [
   {
