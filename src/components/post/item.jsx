@@ -16,7 +16,7 @@ export const PostItem = ({ post }) => {
               width={50}
             />
           ) : (
-            <Avatar name={post.firstName+" "+post.lastName} round={true} />
+            <Avatar name={post.firstName+" "+post.lastName} round={true} size="50"/>
           )}
 
           <div className="p-1">
@@ -57,7 +57,7 @@ export const PostItem = ({ post }) => {
             <i className="far fa-comment" /> {post.numberComment}
           </button>
         </div>
-        <button className="btn btn-primary btn-sm room-btn">Consulter</button>
+        <button className="room-btn">Consulter</button>
       </div>
     </article>
   );

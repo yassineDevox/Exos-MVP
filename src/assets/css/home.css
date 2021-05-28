@@ -203,17 +203,18 @@
  
     .room-btn {background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA  51%, #1FA2FF  100%)}
     .room-btn {
-       margin: 10px;
-       padding: 15px 45px;
-       text-align: center;
-       text-transform: uppercase;
-       transition: 0.5s;
-       background-size: 200% auto;
-       color: white;            
-       box-shadow: 0 0 20px #eee;
-       border-radius: 10px;
-       display: block;
-     }
+      margin: 10px;
+      padding: 4px 30px;
+      border: none;
+      text-align: center;
+      text-transform: uppercase;
+      transition: .5s;
+      background-size: 200% auto;
+      color: #fff;
+      box-shadow: 0 0 20px #eee;
+      border-radius: 5px;
+      display: block;
+  }
 
      .room-btn:hover {
        background-position: right center; /* change the direction of the change here */
