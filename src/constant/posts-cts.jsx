@@ -3,14 +3,12 @@ import PostModel from "../models/model-post";
 import SubjectEnum from "../models/enum-subjects";
 import LevelStudyEnum from "../models/enum-level";
 import  PostItem  from "../components/post/item";
-import mockAvatar from "../assets/images/y.jpg";
-import mockContent from "../assets/images/e.png";
 
 const POSTS = [
   {
     ...new PostModel(
-      mockAvatar,
-      mockContent,
+      null,
+      "https://exos-back.herokuapp.com/api/ibm/exos/view/1587231572901_ex3bac2017.PNG",
       "10h",
       " Besoin de la solution de l'exercice 4 en matrice svp !",
       "jawadi",
@@ -27,8 +25,8 @@ const POSTS = [
   },
   {
     ...new PostModel(
-      mockAvatar,
-      mockContent,
+      null,
+      "https://exos-back.herokuapp.com/api/ibm/exos/view/1587091811117_exerice1.PNG",
       "1d",
       " Besoin de la solution de l'exercice 5 en Fonctions svp !",
       "toumi",
@@ -48,3 +46,4 @@ const POSTS = [
 export default function ListPost() {
   return POSTS.map((p, i) => <PostItem key={i} post={p} />);
 }
+

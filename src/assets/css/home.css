@@ -33,7 +33,7 @@
   }
   
   main {
-    background-color: #e4e6eb;
+    background-color:#f8f8f8;
   }
   #new-post button {
     background-color: #e4e6eb !important;
@@ -167,6 +167,7 @@
     max-width: 630px;
     margin: 0 auto;
     border-radius: 0px 10px 10px 0;
+    box-shadow: 0 5px 25px 0 rgba(123,123,123,.15)!important;
   }
   
   .menu-lg {
@@ -176,6 +177,7 @@
     top: 75px;
     border-radius: 10px;
     left: 5%;
+    box-shadow: 0 5px 25px 0 rgba(123,123,123,.15)!important;
   }
   .nav li {
     font-size: 1.6em;
@@ -201,6 +203,7 @@
     background-color: white;
     width: 20%;
     border-radius: 10px;
+    box-shadow: 0 5px 25px 0 rgba(123,123,123,.15)!important;
   }
   
   .search input {
