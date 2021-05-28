@@ -32,6 +32,11 @@
     background-color: transparent;
   }
   
+  img.av {
+    border-radius: 50%;
+    margin: 9px;
+}
+
   main {
     background-color:#f8f8f8;
   }
@@ -188,13 +193,33 @@
   }
   
   .nav li.active {
-    border-color: #0d6efd;
+    border-color: #4caf50;
   }
   
   .nav li.active i,
   li.active span {
-    color: #0d6efd;
+    color: #4caf50;
   }
+ 
+    .room-btn {background-image: linear-gradient(to right, #1FA2FF 0%, #12D8FA  51%, #1FA2FF  100%)}
+    .room-btn {
+       margin: 10px;
+       padding: 15px 45px;
+       text-align: center;
+       text-transform: uppercase;
+       transition: 0.5s;
+       background-size: 200% auto;
+       color: white;            
+       box-shadow: 0 0 20px #eee;
+       border-radius: 10px;
+       display: block;
+     }
+
+     .room-btn:hover {
+       background-position: right center; /* change the direction of the change here */
+       color: #fff;
+       text-decoration: none;
+     }
   
   .filter-tag {
     position: fixed;
@@ -220,7 +245,9 @@
        height: fit-content;
    }
   
-  
+  .filter-target{
+    color:#388e3c!important
+  }
   
   @media (min-width: 0px) and (max-width: 768px) {
     .filter-tag,

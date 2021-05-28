@@ -1,20 +1,28 @@
 import React from "react";
 import AvatarMock from "./../assets/images/y.jpg";
 import homeMock from "./../assets/images/home.png";
-import helpMock from "./../assets/images/help.png";;
+import helpMock from "./../assets/images/help.png";
 
 export const Header_LT = () => {
   return (
     <header className="border d-flex justify-content-between p-1 sticky-top bg-white">
       <div className="left d-flex ms-2">
         {/* #e7f3ff bgC when click icolor : #f0f2f5 */}
-        <div className="circle-icon border">
+        {/* <div className="circle-icon border">
           {" "}
           <i className="fab fs-2 fab fa-etsy" />
-        </div>
+        </div> */}
+
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnYj3jlYEXUKhVenDORVaJ6ixLZcriOXJ0Vg&amp;usqp=CAU"
+          width="40"
+          height="40"
+          class="av"
+        />
         <div className="search border">
           {" "}
-          <input type="text" placeholder="Search For Something ?"/> <i className="fas fs-6 fa-search" />
+          <input type="text" placeholder="Search For Something ?" />{" "}
+          <i className="fas fs-6 fa-search" />
         </div>
         <div className="circle-icon d-md-none">
           <i className="fas fs-2 fa-bars" />
@@ -39,7 +47,7 @@ export const Header_LT = () => {
       <nav>
         <ul className="d-md-flex d-none nav">
           <li className="active">
-            <i className="fas fa-home" /> 
+            <i className="fas fa-home" />
             <span className="lead "> Home</span>{" "}
           </li>
           <li>
