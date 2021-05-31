@@ -34,12 +34,12 @@ export const Signup_UI = (props) => {
                   onChange={props.handleChange}
                   type="text"
                   className={
-                    props.err != ""
+                    props.err.includes("FirstName") 
                       ? " form-control is-invalid"
                       : "form-control"
                   }
                   id="nom"
-                  name="firstname"
+                  name="firstName"
                   placeholder="firstname"
                 />
                 <label htmlFor="nom">Nom </label>
@@ -49,28 +49,27 @@ export const Signup_UI = (props) => {
                   onChange={props.handleChange}
                   type="text"
                   className={
-                    props.err != ""
+                    props.err.includes("LastName") 
                       ? " form-control is-invalid"
                       : "form-control"
                   }
                   id="pren"
                   placeholder="pren"
-                  name="lastname"
+                  name="lastName"
                 />
                 <label htmlFor="pren">Prénom </label>
               </div>
               <div className="form-floating mb-3">
                 <input
                   onChange={props.handleChange}
-                  type="email"
                   className={
-                    props.err != ""
+                    props.err.includes("ail") 
                       ? " form-control is-invalid"
                       : "form-control"
                   }
                   id="mail"
                   placeholder="mail"
-                  name="email"
+                  name="mail"
                 />
                 <label htmlFor="mail">Address mail</label>
               </div>
@@ -79,7 +78,7 @@ export const Signup_UI = (props) => {
                   onChange={props.handleChange}
                   type="password"
                   className={
-                    props.err != ""
+                    props.err.includes("ass") 
                       ? " form-control is-invalid"
                       : "form-control"
                   }
@@ -91,14 +90,14 @@ export const Signup_UI = (props) => {
               </div>
               <select
                 className={
-                  props.err != ""
+                  props.err.includes("Niveau")
                     ? "  form-select mb-3 is-invalid"
                     : "form-select mb-3 "
                 }
-                name="level"
+                name="niveau"
                 onChange={props.handleChange}
               >
-                <option selected>Niveau d'étude</option>
+                <option defaultValue>Niveau d'étude</option>
                 <option value={LevelStudyEnum.COLLEGE}>Collége</option>
                 <option value={LevelStudyEnum.TC}>Tronc Commun</option>
                 <option value={LevelStudyEnum.Bac_1}>1er année Bac</option>

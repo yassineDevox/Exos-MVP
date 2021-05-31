@@ -5,6 +5,7 @@ import { Signup_UI } from "../components/signup";
 import UserModel from "../models/model-user";
 import "./../assets/css/signin.css";
 import AuthContext from "./auth-context";
+import validator, {isEmail} from "validator";
 
 export default class SigninPage extends Component {
   constructor() {
@@ -22,7 +23,7 @@ export default class SigninPage extends Component {
   render() {
     return (
       <div className="wrapper">
-        <main id="auth" class="row text-sm-center text-md-start p-sm-5">
+        <main id="auth" className="row text-sm-center text-md-start p-sm-5">
           {/* Signin part */}
           <Signin_UI
             handleChange={this.onChangeInput}
@@ -100,19 +101,33 @@ export default class SigninPage extends Component {
         //empty
         let u = this.state.newUser;
 
-        if (Object.keys(u).some((k) => u[k] == "")) {
-          this.setState({ errUp: "Veuillez remplir toute les champs " });
-          return false;
+
+        for (let prop in u){
+          if(u[prop]==""){
+            this.setState({ errUp: prop.charAt(0).toUpperCase().concat(prop.slice(1)) + " ne peux pas être vide " });
+            return false;
+          }
         }
+        
 
         //password criteria
-        if (!u.password.length >= 8) {
+        if (u.password.length < 8) {
           this.setState({
             errUp: "Veuillez saisir un mot de pass avec plus de 8 caractéres",
           });
           return false;
         }
 
+        //email criteria
+        if(!isEmail(u.mail)){
+          this.setState({
+            errUp: "Veuillez saisir une addresse mail valide ",
+          });
+          return false;
+        }
+        this.setState({
+          errUp: "",
+        });
         return true;
       }
 

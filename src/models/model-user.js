@@ -1,6 +1,6 @@
 export default class UserModel {
   constructor(
-    userId,
+    userId="_",
     fn = "",
     ln = "",
     mail = "",
@@ -8,8 +8,8 @@ export default class UserModel {
     role = "USER",
     avatar = "_",
     niveau = "",
-    points = 0,
-    dateCreation=""
+    points = "_",
+    dateCreation=new Date()
   ) {
     this.userId = userId;
     this.firstName = fn;

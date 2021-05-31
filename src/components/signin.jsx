@@ -12,7 +12,7 @@ export const Signin_UI = (props) => {
         </p>
         <img className="welcome" src={welcome} alt="welcome" />
       </section>
-      <section class=" col-md-1 "></section>
+      <section className=" col-md-1 "></section>
       <section className="border col-md-5 bg-white p-3 ">
         {/* signin form */}
         <form onSubmit={props.handleSubmit}>
