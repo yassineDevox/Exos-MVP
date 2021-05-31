@@ -2,6 +2,7 @@ fix issues for production:
     ✔ display image for react on prod @started(21-05-28 13:31) @done(21-05-29 06:58) @lasted(17h27m23s)
     ✔ work with react avatar for nopic founded accounts @started(21-05-28 13:31) @done(21-05-29 06:58) @lasted(17h27m25s)
     ✔ add top to the filter tag element moskoshi @started(21-05-29 06:59) @done(21-05-29 07:01) @lasted(3m)
-    ☐ get the data from the server @started(21-05-29 07:02)
+    ✘ get the data from the server @started(21-05-29 07:02) @cancelled(21-05-31 10:06) @wasted(2d3h4m58s)
+    ☐ signup with the server @started(21-05-31 10:07)
     ☐ fix respensive design issues 
     ☐ add new post feature

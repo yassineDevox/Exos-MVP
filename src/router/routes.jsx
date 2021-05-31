@@ -10,8 +10,8 @@ export default function AppRouter() {
     <Router>
       <AuthProvider>
         <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/signin" component={SigninPage} />
+          <Route exact path="/" component={SigninPage} />
+          <Route path="/home" component={HomePage} />
           <Route path="*" component={Error404} />
         </Switch>
       </AuthProvider>
