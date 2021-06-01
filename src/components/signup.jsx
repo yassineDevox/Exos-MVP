@@ -69,7 +69,7 @@ export const Signup_UI = (props) => {
                   }
                   id="mail"
                   placeholder="mail"
-                  name="mail"
+                  name="email"
                 />
                 <label htmlFor="mail">Address mail</label>
               </div>
@@ -98,11 +98,11 @@ export const Signup_UI = (props) => {
                 onChange={props.handleChange}
               >
                 <option defaultValue>Niveau d'étude</option>
-                <option value={LevelStudyEnum.COLLEGE}>Collége</option>
-                <option value={LevelStudyEnum.TC}>Tronc Commun</option>
-                <option value={LevelStudyEnum.Bac_1}>1er année Bac</option>
-                <option value={LevelStudyEnum.Bac_2}>2eme année Bac</option>
-                <option value={LevelStudyEnum.SUP}>Université ou Ecole</option>
+                <option value="COL">Collège</option>
+                <option value="TC">Tronc Commun</option>
+                <option value="1BAC">1er année Bac</option>
+                <option value="2BAC">2eme année Bac</option>
+                <option value="SUP">Université ou Ecole</option>
               </select>
               <br />
               <div className="text-center d-grid gap-2">

@@ -4,7 +4,7 @@ fix issues for production:
     ✔ add top to the filter tag element moskoshi @started(21-05-29 06:59) @done(21-05-29 07:01) @lasted(3m)
     ✘ get the data from the server @started(21-05-29 07:02) @cancelled(21-05-31 10:06) @wasted(2d3h4m58s)
     ✔ signup client validation @started(21-05-31 10:07) @done(21-05-31 12:17) @lasted(2h10m41s)
-    ☐ signup server side communication @started(21-06-01 11:17)
+    ✔ signup server side communication send data and get accessToken and userId @started(21-06-01 11:17) @done(21-06-01 16:10) @lasted(4h53m14s)
     ☐ fix respensive design issues 
     ☐ add new post feature
     

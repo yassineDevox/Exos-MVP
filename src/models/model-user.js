@@ -3,7 +3,7 @@ export default class UserModel {
     userId="_",
     fn = "",
     ln = "",
-    mail = "",
+    email = "",
     pass = "",
     role = "USER",
     avatar = "_",
@@ -14,7 +14,7 @@ export default class UserModel {
     this.userId = userId;
     this.firstName = fn;
     this.lastName = ln;
-    this.mail = mail;
+    this.email = email;
     this.password = pass;
     this.role = role;
     this.avatar = avatar;

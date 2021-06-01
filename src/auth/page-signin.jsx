@@ -11,7 +11,7 @@ export default class SigninPage extends Component {
   constructor() {
     super();
     this.state = {
-      mail: "",
+      email: "",
       mdp: "",
       fp: "",
       newUser: new UserModel(),
@@ -50,7 +50,7 @@ export default class SigninPage extends Component {
   }
 
   doForgetPassword = () => {
-    alert("send verification link to this email : " + this.state.mail);
+    alert("send verification link to this email : " + this.state.email);
   };
 
   onSubmitForgetPassword = (e) => {
@@ -83,9 +83,9 @@ export default class SigninPage extends Component {
 
   //-----signin
   doSignIn = () => {
-    const { mail, mdp } = this.state;
+    const { email, mdp } = this.state;
     this.context
-      .login(mail, mdp)
+      .login(email, mdp)
       .then((data) => console.log(data))
       .catch((err) => console.log(err));
   };
@@ -93,8 +93,8 @@ export default class SigninPage extends Component {
   formIsValid = (formName) => {
     switch (formName) {
       case "IN": {
-        const { mail, mdp } = this.state;
-        if (mail == "" || mdp == "") return false;
+        const { email, mdp } = this.state;
+        if (email == "" || mdp == "") return false;
         return true;
       }
       case "UP": {
@@ -150,7 +150,7 @@ export default class SigninPage extends Component {
         }
 
         //email criteria
-        if (!isEmail(u.mail)) {
+        if (!isEmail(u.email)) {
           this.setState({
             errUp: "Veuillez saisir une addresse mail valide ",
           });

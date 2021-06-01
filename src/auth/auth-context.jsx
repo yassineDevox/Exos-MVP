@@ -14,19 +14,19 @@ export class AuthProvider extends Component {
     };
   }
 
-  componentDidMount(){
-    
-  }
-
+  componentDidMount() {}
 
   register = (newUser) => {
-    console.log(newUser);
-    // return axios.post(config.url.AUTH.SIGNUP,newUser);
+    newUser.points = 0;
+    newUser.avatar = null;
+    newUser.userId = null;
+    newUser.dateCreation=null;
+    return axios.post(config.url.AUTH.SIGNUP, newUser);
   };
 
-  login = (email,password) => {
-    console.log(email,password);
-    return axios.post(config.url.AUTH.SIGNIN,{email,password});
+  login = (email, password) => {
+    console.log(email, password);
+    return axios.post(config.url.AUTH.SIGNIN, { email, password });
   };
 
   logout = () => {
