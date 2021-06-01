@@ -21,7 +21,7 @@ export class AuthProvider extends Component {
 
   register = (newUser) => {
     console.log(newUser);
-    return axios.post(config.url.AUTH.SIGNUP,newUser);
+    // return axios.post(config.url.AUTH.SIGNUP,newUser);
   };
 
   login = (email,password) => {

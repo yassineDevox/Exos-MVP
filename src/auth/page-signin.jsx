@@ -5,7 +5,7 @@ import { Signup_UI } from "../components/signup";
 import UserModel from "../models/model-user";
 import "./../assets/css/signin.css";
 import AuthContext from "./auth-context";
-import validator, {isEmail} from "validator";
+import { isEmail } from "validator";
 
 export default class SigninPage extends Component {
   constructor() {
@@ -101,15 +101,46 @@ export default class SigninPage extends Component {
         //empty
         let u = this.state.newUser;
 
-
-        for (let prop in u){
-          if(u[prop]==""){
-            this.setState({ errUp: prop.charAt(0).toUpperCase().concat(prop.slice(1)) + " ne peux pas être vide " });
+        for (let prop in u) {
+          if (u[prop] == "") {
+            this.setState({
+              errUp:
+                prop.charAt(0).toUpperCase().concat(prop.slice(1)) +
+                " ne peux pas être vide ",
+            });
             return false;
           }
         }
-        
 
+        //min and max length first/last names
+
+        if (u["firstName"].length < 3) {
+          this.setState({
+            errUp:"FirstName dois avoir ou moin 3 caracteres ",
+          });
+          return false;
+        } 
+        if (u["lastName"].length < 3) {
+          this.setState({
+            errUp:"LastName dois avoir ou moin 3 caracteres ",
+          });
+          return false;
+        }
+        
+        if (u["firstName"].length > 10) {
+          this.setState({
+            errUp:"FirstName dois avoir ou max 10 caracteres ",
+          });
+          return false;
+        }
+
+        if (u["lastName"].length > 10) {
+          this.setState({
+            errUp:"LastName dois avoir ou moin 10 caracteres ",
+          });
+          return false;
+        }
+       
         //password criteria
         if (u.password.length < 8) {
           this.setState({
@@ -119,7 +150,7 @@ export default class SigninPage extends Component {
         }
 
         //email criteria
-        if(!isEmail(u.mail)){
+        if (!isEmail(u.mail)) {
           this.setState({
             errUp: "Veuillez saisir une addresse mail valide ",
           });
