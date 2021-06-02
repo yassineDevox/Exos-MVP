@@ -1,5 +1,4 @@
 import React from "react";
-import LevelStudyEnum from "../models/enum-level";
 
 export const Signup_UI = (props) => {
   return (
@@ -8,13 +7,14 @@ export const Signup_UI = (props) => {
       id="signupModal"
       tabIndex={-1}
       aria-labelledby="exampleModalLabel"
+      data-bs-backdrop="static" data-bs-keyboard="false"
       aria-hidden="true"
     >
       <div className="modal-dialog">
         <div className="modal-content">
           <div className="modal-header ">
             <div>
-              <h4 className="modal-title" id="exampleModalLabel">
+              <h4 className="modal-title text-start" id="exampleModalLabel">
                 S'inscrire
               </h4>
               <span className="lead fs-6">C'est rapide et facile !</span>
@@ -23,18 +23,19 @@ export const Signup_UI = (props) => {
               type="button"
               className="btn-close"
               data-bs-dismiss="modal"
+              onClick={props.onExitedModal}
               aria-label="Close"
             />
           </div>
           <div className="modal-body">
             {/* signup form */}
-            <form onSubmit={props.handleSubmit}>
+            <form onSubmit={props.handleSubmit} id="signupForm">
               <div className="form-floating mb-3">
                 <input
                   onChange={props.handleChange}
                   type="text"
                   className={
-                    props.err.includes("FirstName") 
+                    props.err.includes("FirstName")
                       ? " form-control is-invalid"
                       : "form-control"
                   }
@@ -49,7 +50,7 @@ export const Signup_UI = (props) => {
                   onChange={props.handleChange}
                   type="text"
                   className={
-                    props.err.includes("LastName") 
+                    props.err.includes("LastName")
                       ? " form-control is-invalid"
                       : "form-control"
                   }
@@ -63,7 +64,7 @@ export const Signup_UI = (props) => {
                 <input
                   onChange={props.handleChange}
                   className={
-                    props.err.includes("ail") 
+                    props.err.includes("ail")
                       ? " form-control is-invalid"
                       : "form-control"
                   }
@@ -78,7 +79,7 @@ export const Signup_UI = (props) => {
                   onChange={props.handleChange}
                   type="password"
                   className={
-                    props.err.includes("ass") 
+                    props.err.includes("ass")
                       ? " form-control is-invalid"
                       : "form-control"
                   }
@@ -107,10 +108,22 @@ export const Signup_UI = (props) => {
               <br />
               <div className="text-center d-grid gap-2">
                 <button
-                  className="btn btn-success btn-sm fw-bold"
+                  className="text-uppercase btn btn-success btn-sm "
                   type="submit"
                 >
-                  Inscription
+                  Inscription{" "}
+                  <div
+                    style={{
+                      zoom: 0.6,
+                      marginTop: "14px",
+                      marginLeft: "10px",
+                      padding: "10px",
+                    }}
+                    className={props.isLoading ? "spinner-border" : "d-none"}
+                    role="status"
+                  >
+                    <span className="sr-only">Loading...</span>
+                  </div>
                 </button>
                 <span
                   className={

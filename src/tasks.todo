@@ -5,6 +5,8 @@ fix issues for production:
     ✘ get the data from the server @started(21-05-29 07:02) @cancelled(21-05-31 10:06) @wasted(2d3h4m58s)
     ✔ signup client validation @started(21-05-31 10:07) @done(21-05-31 12:17) @lasted(2h10m41s)
     ✔ signup server side communication send data and get accessToken and userId @started(21-06-01 11:17) @done(21-06-01 16:10) @lasted(4h53m14s)
+    ✔ server side client errors handling @started(21-06-02 12:51) @done(21-06-02 13:46) @lasted(55m47s)
+        ✔ add spinner while its waiting for response from the server @started(21-06-02 12:52) @done(21-06-02 13:46) @lasted(54m34s)
     ☐ fix respensive design issues 
     ☐ add new post feature
     

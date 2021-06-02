@@ -18,6 +18,7 @@ export default class SigninPage extends Component {
       errIn: "",
       errUp: "",
       errFp: "",
+      isLoading:false
     };
   }
   render() {
@@ -35,6 +36,8 @@ export default class SigninPage extends Component {
             handleChange={this.onChangeInput_UP}
             handleSubmit={this.onSubmitSignup}
             err={this.state.errUp}
+            isLoading={this.state.isLoading}
+            onExitedModal = {this.clearStates}
           />
           <ForgetPass_UI
             handleChange={this.onChangeInput}
@@ -49,6 +52,12 @@ export default class SigninPage extends Component {
     );
   }
 
+
+  
+  clearStates = () => {
+    this.setState({errUp:"",newUser:new UserModel()})
+    document.getElementById("signupForm").reset();
+  }
   doForgetPassword = () => {
     alert("send verification link to this email : " + this.state.email);
   };
@@ -75,10 +84,24 @@ export default class SigninPage extends Component {
   };
 
   doSignUp = () => {
+
+    this.setState({isLoading:true})
+    
     this.context
       .register(this.state.newUser)
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
+      .then((data) =>{ 
+        this.setState({isLoading:false});  
+        console.log(data)
+      })
+      .catch((data) =>{ 
+        
+        
+        this.setState({isLoading:false});  
+        //dealing with server side errors 
+        this.setState({errUp:data.response.data.message});
+      
+      
+      });
   };
 
   //-----signin
