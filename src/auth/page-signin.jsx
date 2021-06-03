@@ -30,6 +30,7 @@ export default class SigninPage extends Component {
             handleChange={this.onChangeInput}
             handleSubmit={this.onSubmitSignin}
             err={this.state.errIn}
+            isLoading={this.state.isLoading}
           />
           {/* modals */}
           <Signup_UI
@@ -43,6 +44,8 @@ export default class SigninPage extends Component {
             handleChange={this.onChangeInput}
             handleSubmit={this.onSubmitForgetPassword}
             err={this.state.errFp}
+            onExitedModal = {this.clearStates}
+
           />
         </main>
         <p className="lead text-center fs-6 p-1">
@@ -55,8 +58,10 @@ export default class SigninPage extends Component {
 
   
   clearStates = () => {
-    this.setState({errUp:"",newUser:new UserModel()})
+    this.setState({errUp:"",errFp:"",newUser:new UserModel()})
     document.getElementById("signupForm").reset();
+    document.getElementById("forgetPassForm").reset();
+
   }
   doForgetPassword = () => {
     alert("send verification link to this email : " + this.state.email);
@@ -65,9 +70,6 @@ export default class SigninPage extends Component {
   onSubmitForgetPassword = (e) => {
     e.preventDefault();
     if (this.formIsValid()) this.doForgetPassword();
-    else {
-      this.setState({ errFp: "Veuillez remplir le champ email !" });
-    }
   };
 
   onChangeInput_UP = (e) => {
@@ -95,29 +97,54 @@ export default class SigninPage extends Component {
       })
       .catch((data) =>{ 
         
-        
         this.setState({isLoading:false});  
         //dealing with server side errors 
         this.setState({errUp:data.response.data.message});
-      
       
       });
   };
 
   //-----signin
   doSignIn = () => {
-    const { email, mdp } = this.state;
-    this.context
-      .login(email, mdp)
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
+      
+      const { email, mdp } = this.state;
+
+      this.setState({isLoading:true})
+    
+      this.context
+        .login(email,mdp)
+        .then((data) =>{ 
+          this.setState({isLoading:false});  
+          console.log(data)
+        })
+        .catch((data) =>{ 
+          
+          this.setState({isLoading:false});  
+          //dealing with server side errors 
+          this.setState({errIn:data.response.data.message});
+        
+        });
   };
 
   formIsValid = (formName) => {
     switch (formName) {
       case "IN": {
+
         const { email, mdp } = this.state;
-        if (email == "" || mdp == "") return false;
+        if (email == "" || mdp == ""){
+          this.setState({ errIn: "Veuillez remplir le champ email !" });
+          return false;
+        } 
+        
+        //email criteria
+        if (!isEmail(email)) {
+          this.setState({
+            errIn: "Veuillez saisir une addresse mail valide ",
+          });
+          return false;
+        }
+
+
         return true;
       }
       case "UP": {
@@ -186,7 +213,21 @@ export default class SigninPage extends Component {
       }
 
       default: {
-        return this.state.fp != "";
+        
+        if (this.state.fp == ""){
+          this.setState({ errFp: "Veuillez remplir le champ email !" });
+          return false;
+        } 
+        
+        //email criteria
+        if (!isEmail(this.state.fp)) {
+          this.setState({
+            errFp: "Veuillez saisir une addresse mail valide ",
+          });
+          return false;
+        }
+        
+        return true;
       }
     }
   };
@@ -204,9 +245,6 @@ export default class SigninPage extends Component {
   onSubmitSignin = (e) => {
     e.preventDefault();
     if (this.formIsValid("IN")) this.doSignIn();
-    else {
-      this.setState({ errIn: "Veuillez remplir toute les champs " });
-    }
   };
 }
 

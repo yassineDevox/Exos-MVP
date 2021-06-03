@@ -20,11 +20,11 @@ export const Signin_UI = (props) => {
             <input
               type="email"
               className={
-                props.err != "" ? " form-control is-invalid" : "form-control"
+                props.err.includes("mail") ? " form-control is-invalid" : "form-control"
               }
               id="floatingInput"
               placeholder="mail"
-              name="mail"
+              name="email"
               onChange={props.handleChange}
             />
             <label htmlFor="floatingInput">Address mail</label>
@@ -46,6 +46,18 @@ export const Signin_UI = (props) => {
           <div className="d-grid gap-2 mb-1">
             <button type="submit" className="btn btn-primary btn-lg">
               Connexion
+              <div
+                    style={{
+                      zoom: 0.6,
+                      marginTop: "14px",
+                      marginLeft: "10px",
+                      padding: "10px",
+                    }}
+                    className={props.isLoading ? "spinner-border" : "d-none"}
+                    role="status"
+                  >
+                    <span className="sr-only">Loading...</span>
+                  </div>
             </button>
             <span
               className={

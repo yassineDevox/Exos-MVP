@@ -7,6 +7,7 @@ fix issues for production:
     ✔ signup server side communication send data and get accessToken and userId @started(21-06-01 11:17) @done(21-06-01 16:10) @lasted(4h53m14s)
     ✔ server side client errors handling @started(21-06-02 12:51) @done(21-06-02 13:46) @lasted(55m47s)
         ✔ add spinner while its waiting for response from the server @started(21-06-02 12:52) @done(21-06-02 13:46) @lasted(54m34s)
+        ✔ add spinner for login part and forget too @started(21-06-03 13:39) @done(21-06-03 13:50) @lasted(11m32s)
     ☐ fix respensive design issues 
     ☐ add new post feature
     

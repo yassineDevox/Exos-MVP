@@ -8,6 +8,7 @@ export const ForgetPass_UI = (props) => {
       tabIndex={-1}
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
+      data-bs-backdrop="static" data-bs-keyboard="false"
     >
       <div className="modal-dialog">
         <div className="modal-content">
@@ -22,21 +23,21 @@ export const ForgetPass_UI = (props) => {
               type="button"
               className="btn-close"
               data-bs-dismiss="modal"
+              onClick={props.onExitedModal}
               aria-label="Close"
             />
           </div>
           <div className="modal-body">
             {/* forget password form */}
-            <form onSubmit={props.handleSubmit}>
+            <form onSubmit={props.handleSubmit} id="forgetPassForm">
               <div className="form-floating mb-3">
                 <input
-                  type="email"
                   className={
                     props.err != "" ? "form-control is-invalid" : "form-control"
                   }
                   id="mail"
                   placeholder="mail"
-                  name="mail"
+                  name="fp"
                   onChange={props.handleChange}
                 />
                 <label htmlFor="mail">Votre addresse mail</label>
