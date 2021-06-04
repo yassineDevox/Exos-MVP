@@ -8,8 +8,8 @@ import AuthContext from "./auth-context";
 import { isEmail } from "validator";
 
 export default class SigninPage extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       email: "",
       mdp: "",
@@ -18,7 +18,7 @@ export default class SigninPage extends Component {
       errIn: "",
       errUp: "",
       errFp: "",
-      isLoading:false
+      isLoading: false,
     };
   }
   render() {
@@ -38,14 +38,13 @@ export default class SigninPage extends Component {
             handleSubmit={this.onSubmitSignup}
             err={this.state.errUp}
             isLoading={this.state.isLoading}
-            onExitedModal = {this.clearStates}
+            onExitedModal={this.clearStates}
           />
           <ForgetPass_UI
             handleChange={this.onChangeInput}
             handleSubmit={this.onSubmitForgetPassword}
             err={this.state.errFp}
-            onExitedModal = {this.clearStates}
-
+            onExitedModal={this.clearStates}
           />
         </main>
         <p className="lead text-center fs-6 p-1">
@@ -55,14 +54,11 @@ export default class SigninPage extends Component {
     );
   }
 
-
-  
   clearStates = () => {
-    this.setState({errUp:"",errFp:"",newUser:new UserModel()})
+    this.setState({ errUp: "", errFp: "", newUser: new UserModel() });
     document.getElementById("signupForm").reset();
     document.getElementById("forgetPassForm").reset();
-
-  }
+  };
   doForgetPassword = () => {
     alert("send verification link to this email : " + this.state.email);
   };
@@ -86,56 +82,52 @@ export default class SigninPage extends Component {
   };
 
   doSignUp = () => {
+    this.setState({ isLoading: true });
 
-    this.setState({isLoading:true})
-    
     this.context
       .register(this.state.newUser)
-      .then((data) =>{ 
-        this.setState({isLoading:false});  
-        console.log(data)
+      .then((data) => {
+        this.setState({ isLoading: false });
+        this.context.saveUserSession(data.userInfo);
+        this.props.history.push("/home");
       })
-      .catch((data) =>{ 
-        
-        this.setState({isLoading:false});  
-        //dealing with server side errors 
-        this.setState({errUp:data.response.data.message});
-      
+      .catch((data) => {
+        this.setState({ isLoading: false });
+        //dealing with server side errors
+        this.setState({ errUp: data.response.data.message });
       });
   };
 
   //-----signin
   doSignIn = () => {
-      
-      const { email, mdp } = this.state;
+    const { email, mdp } = this.state;
 
-      this.setState({isLoading:true})
-    
-      this.context
-        .login(email,mdp)
-        .then((data) =>{ 
-          this.setState({isLoading:false});  
-          console.log(data)
-        })
-        .catch((data) =>{ 
-          
-          this.setState({isLoading:false});  
-          //dealing with server side errors 
-          this.setState({errIn:data.response.data.message});
-        
-        });
+    this.setState({ isLoading: true });
+
+    this.context
+      .login(email, mdp)
+      .then((response) => {
+        this.setState({ isLoading: false });
+
+        this.context.saveUserSession(response.data.userInfo);
+        this.props.history.push("/home");
+      })
+      .catch(data => {
+        this.setState({ isLoading: false });
+        //dealing with server side errors
+        this.setState({ errIn: data.response.data.message });
+      });
   };
 
   formIsValid = (formName) => {
     switch (formName) {
       case "IN": {
-
         const { email, mdp } = this.state;
-        if (email == "" || mdp == ""){
+        if (email == "" || mdp == "") {
           this.setState({ errIn: "Veuillez remplir le champ email !" });
           return false;
-        } 
-        
+        }
+
         //email criteria
         if (!isEmail(email)) {
           this.setState({
@@ -143,7 +135,6 @@ export default class SigninPage extends Component {
           });
           return false;
         }
-
 
         return true;
       }
@@ -166,31 +157,31 @@ export default class SigninPage extends Component {
 
         if (u["firstName"].length < 3) {
           this.setState({
-            errUp:"FirstName dois avoir ou moin 3 caracteres ",
-          });
-          return false;
-        } 
-        if (u["lastName"].length < 3) {
-          this.setState({
-            errUp:"LastName dois avoir ou moin 3 caracteres ",
+            errUp: "FirstName dois avoir ou moin 3 caracteres ",
           });
           return false;
         }
-        
+        if (u["lastName"].length < 3) {
+          this.setState({
+            errUp: "LastName dois avoir ou moin 3 caracteres ",
+          });
+          return false;
+        }
+
         if (u["firstName"].length > 10) {
           this.setState({
-            errUp:"FirstName dois avoir ou max 10 caracteres ",
+            errUp: "FirstName dois avoir ou max 10 caracteres ",
           });
           return false;
         }
 
         if (u["lastName"].length > 10) {
           this.setState({
-            errUp:"LastName dois avoir ou moin 10 caracteres ",
+            errUp: "LastName dois avoir ou moin 10 caracteres ",
           });
           return false;
         }
-       
+
         //password criteria
         if (u.password.length < 8) {
           this.setState({
@@ -213,12 +204,11 @@ export default class SigninPage extends Component {
       }
 
       default: {
-        
-        if (this.state.fp == ""){
+        if (this.state.fp == "") {
           this.setState({ errFp: "Veuillez remplir le champ email !" });
           return false;
-        } 
-        
+        }
+
         //email criteria
         if (!isEmail(this.state.fp)) {
           this.setState({
@@ -226,7 +216,7 @@ export default class SigninPage extends Component {
           });
           return false;
         }
-        
+
         return true;
       }
     }

@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { Component } from "react";
 import { config } from "../api/url";
+import UserModel from "../models/model-user";
 
 //create authContext from React
 const AuthContext = React.createContext();
@@ -25,9 +26,12 @@ export class AuthProvider extends Component {
   };
 
   login = (email, password) => {
-    console.log(email, password);
     return axios.post(config.url.AUTH.SIGNIN, { email, password });
   };
+
+  saveUserSession = (userInfo) =>{
+    this.setState( { currentUser : new UserModel(userInfo) } );
+  }
 
   logout = () => {
     console.log("logout");
@@ -41,6 +45,7 @@ export class AuthProvider extends Component {
           login: this.login,
           logout: this.logout,
           register: this.register,
+          saveUserSession:this.saveUserSession
         }}
       >
         {this.props.children}

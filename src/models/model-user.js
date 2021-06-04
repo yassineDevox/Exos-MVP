@@ -1,6 +1,7 @@
 export default class UserModel {
   constructor(
-    userId="_",
+    userInfo = null,
+    userId = "_",
     fn = "",
     ln = "",
     email = "",
@@ -9,17 +10,17 @@ export default class UserModel {
     avatar = "_",
     niveau = "",
     points = "_",
-    dateCreation=new Date()
+    dateCreation = new Date()
   ) {
-    this.userId = userId;
-    this.firstName = fn;
-    this.lastName = ln;
-    this.email = email;
-    this.password = pass;
+    this.userId = userInfo ? userInfo.userId : userId;
+    this.firstName = userInfo ? userInfo.firstName : fn;
+    this.lastName = userInfo ? userInfo.lastName : ln;
+    this.email = userInfo ? userInfo.mail : email;
+    this.password = userInfo ? userInfo.password : pass;
     this.role = role;
-    this.avatar = avatar;
-    this.niveau = niveau;
-    this.points = points;
-    this.dateCreation=dateCreation
+    this.avatar = userInfo ? userInfo.avatar : avatar;
+    this.niveau = userInfo ? userInfo.niveau : niveau;
+    this.points = userInfo ? userInfo.points : points;
+    this.dateCreation = userInfo ? userInfo.dateCreation : dateCreation;
   }
 }
