@@ -29,8 +29,10 @@ export class AuthProvider extends Component {
     return axios.post(config.url.AUTH.SIGNIN, { email, password });
   };
 
-  saveUserSession = (userInfo) =>{
-    this.setState( { currentUser : new UserModel(userInfo) } );
+  saveUserSession = (userInfo,accessToken) =>{
+    
+    this.setState( { currentUser : new UserModel(userInfo) });
+    window.localStorage.setItem("auth-token",JSON.stringify(accessToken));
   }
 
   logout = () => {

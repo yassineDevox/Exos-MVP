@@ -88,7 +88,7 @@ export default class SigninPage extends Component {
       .register(this.state.newUser)
       .then((data) => {
         this.setState({ isLoading: false });
-        this.context.saveUserSession(data.userInfo);
+        this.context.saveUserSession(response.data.userInfo,response.data.accessToken);
         this.props.history.push("/home");
       })
       .catch((data) => {
@@ -109,7 +109,7 @@ export default class SigninPage extends Component {
       .then((response) => {
         this.setState({ isLoading: false });
 
-        this.context.saveUserSession(response.data.userInfo);
+        this.context.saveUserSession(response.data.userInfo,response.data.accessToken);
         this.props.history.push("/home");
       })
       .catch(data => {
