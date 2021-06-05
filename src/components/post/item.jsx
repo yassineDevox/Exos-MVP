@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import PostModel from "../../models/model-post";
 import Avatar from "react-avatar";
+import { config } from "../../api/url";
 
 export const PostItem = ({ post }) => {
   return (
@@ -10,13 +11,13 @@ export const PostItem = ({ post }) => {
         <div className="d-flex">
           {post.avatar != null ? (
             <img
-              src={post.avatar}
+              src={config.URL_PHOTOS + post.avatar}
               alt="img"
               className="img-circle border m-1"
-              width={50}
+              width={40}
             />
           ) : (
-            <Avatar name={post.firstName+" "+post.lastName} round={true} size="50"/>
+            <Avatar style={{marginLeft:"6px",marginRight:"6px"}} name={post.firstName+" "+post.lastName} round={true} size="45"/>
           )}
 
           <div className="p-1">

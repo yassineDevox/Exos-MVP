@@ -15,7 +15,12 @@ export class AuthProvider extends Component {
     };
   }
 
-  componentDidMount() {}
+  // onrefreach the pages i think yeah here i will initialize again the user's infos 
+  componentDidMount() {
+    if(JSON.parse(window.localStorage.getItem('auth-token'))){
+      this.setState({currentUser:JSON.parse(window.localStorage.getItem("user-auth"))});
+    }
+  }
 
   register = (newUser) => {
     newUser.points = 0;
@@ -33,6 +38,7 @@ export class AuthProvider extends Component {
     
     this.setState( { currentUser : new UserModel(userInfo) });
     window.localStorage.setItem("auth-token",JSON.stringify(accessToken));
+    window.localStorage.setItem("user-auth",JSON.stringify(userInfo));
   }
 
   logout = () => {

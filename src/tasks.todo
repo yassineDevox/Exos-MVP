@@ -10,6 +10,7 @@ fix issues for production:
         ✔ add spinner for login part and forget too @started(21-06-03 13:39) @done(21-06-03 13:50) @lasted(11m32s)
         ✔ redirect to the home page @started(21-06-04 11:05) @done(21-06-04 12:06) @lasted(1h1m30s)
         ✔ store the accessToken and userSession in localstorage @started(21-06-05 13:15) @done(21-06-05 13:31) @lasted(16m9s)
+        ✔ display shared user's info into the header and home @started(21-06-05 13:32) @done(21-06-05 14:16) @lasted(44m1s)
         ☐ get the the list of posts based on user's level   
         ☐ display the data retrieved in the home page   
         ☐ filter by level feature  

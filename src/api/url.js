@@ -1,4 +1,4 @@
-export const UrlPhoto = {
+ const UrlPhoto = {
     urlPhotoHeroku: "https://exos-back.herokuapp.com/api",
     urlPhotoAppBack: "http://localhost:3649/",
     urlServerHeroku: "https://exos-back.herokuapp.com/"
@@ -87,4 +87,4 @@ const URL_FOR = {
 
 }
 
-export const config = { url: URL_FOR,baseUrl:BASE_URL};
+export const config = { url: URL_FOR,baseUrl:BASE_URL,URL_PHOTOS:UrlPhoto.urlPhotoHeroku};

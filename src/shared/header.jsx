@@ -1,23 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import AvatarMock from "./../assets/images/y.jpg";
 import homeMock from "./../assets/images/home.png";
 import helpMock from "./../assets/images/help.png";
+import AuthContext from "../auth/auth-context";
+import Avatar from "react-avatar";
+import { config } from "../api/url";
 
 export const Header_LT = () => {
+  const { logout, currentUser } = useContext(AuthContext);
   return (
     <header className="border d-flex justify-content-between p-1 sticky-top bg-white">
       <div className="left d-flex ms-2">
-        {/* #e7f3ff bgC when click icolor : #f0f2f5 */}
-        {/* <div className="circle-icon border">
-          {" "}
-          <i className="fab fs-2 fab fa-etsy" />
-        </div> */}
-
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTnYj3jlYEXUKhVenDORVaJ6ixLZcriOXJ0Vg&amp;usqp=CAU"
           width="40"
           height="40"
-          class="av"
+          className="av"
+          alt="logo"
         />
         <div className="search border">
           {" "}
@@ -28,9 +27,21 @@ export const Header_LT = () => {
           <i className="fas fs-2 fa-bars" />
           <div className="menu border p-2 d-none">
             <div className="d-flex align-items-center">
-              <img src={AvatarMock} className="sm-avatar" alt="avatar" />
+              {currentUser.avatar != null ? (
+                <img
+                  src={config.URL_PHOTOS + currentUser.avatar}
+                  alt="img"
+                  className="sm-avatar"
+                />
+              ) : (
+                <Avatar
+                  name={currentUser.firstName + " " + currentUser.lastName}
+                  round={true}
+                  size="36"
+                />
+              )}
               <div className="user-info ms-1">
-                <h6>Yassine Devs</h6>
+                <h6>{currentUser.firstName + " " + currentUser.lastName}</h6>
               </div>
             </div>
             <div className="setting-link m-1 p-1">
@@ -62,9 +73,21 @@ export const Header_LT = () => {
       </nav>
       <div className="right d-flex me-2">
         <div className="d-md-flex align-items-center d-none">
-          <img src={AvatarMock} className="sm-avatar" alt="avatar" />
+          {currentUser.avatar != null ? (
+            <img
+              src={config.URL_PHOTOS + currentUser.avatar}
+              alt="img"
+              className="sm-avatar"
+            />
+          ) : (
+            <Avatar
+              name={currentUser.firstName + " " + currentUser.lastName}
+              round={true}
+              size="36"
+            />
+          )}
           <div className="user-info me-2 mt-1">
-            <h6>Yassine Dev</h6>
+            <h6>{currentUser.firstName + " " + currentUser.lastName}</h6>
           </div>
         </div>
         <button
