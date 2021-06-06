@@ -11,8 +11,8 @@ fix issues for production:
         ✔ redirect to the home page @started(21-06-04 11:05) @done(21-06-04 12:06) @lasted(1h1m30s)
         ✔ store the accessToken and userSession in localstorage @started(21-06-05 13:15) @done(21-06-05 13:31) @lasted(16m9s)
         ✔ display shared user's info into the header and home @started(21-06-05 13:32) @done(21-06-05 14:16) @lasted(44m1s)
-        ☐ get the the list of posts based on user's level   
-        ☐ display the data retrieved in the home page   
+        ✔ get the the list of posts based on user's level @started(21-06-06 10:56) @done(21-06-06 12:15) @lasted(1h19m44s)
+        ✔ display the data retrieved in the home page @started(21-06-06 12:16) @done(21-06-06 12:38) @lasted(22m20s)
         ☐ filter by level feature  
         ☐ filter by tags feature  
     ☐ fix respensive design issues 

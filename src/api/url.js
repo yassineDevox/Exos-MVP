@@ -39,9 +39,8 @@ const URL_FOR = {
 
         ADD: `${BASE_API.PUBLICATIONS}po`,
 
-        listPublicationByLevel: `${BASE_API.CRITERIA}`
-
-        , listPublicationByDescAndLevel:(desc,niveau, np = 0, o = "desc", sz = 100) => { 
+        listPublicationByLevel: `${BASE_API.CRITERIA}`, 
+        listPublicationByDescAndLevel:(desc,niveau, np = 0, o = "desc", sz = 100) => { 
         
             return `${BASE_API.CRITERIA}?description=${desc}&niveau=${niveau}&numberPage=${np}&order=${o}&size=${sz}` 
         },
@@ -53,7 +52,6 @@ const URL_FOR = {
         likePublication: (pi, ui) => { return `${BASE_API.PUBLICATIONS}like?publicationId=${pi}&userId=${ui}` },
 
         allPubsByProfil: (ui, np = 0, o = "desc", sz = 20) => { return `${BASE_API.PROFIL}info/publie?numberPage=${np}&order=${o}&size=${sz}&userId=${ui}` },
-        
     },
 
     PARTICIPATION: {

@@ -14,10 +14,16 @@ export const PostItem = ({ post }) => {
               src={config.URL_PHOTOS + post.avatar}
               alt="img"
               className="img-circle border m-1"
+              height={40}
               width={40}
             />
           ) : (
-            <Avatar style={{marginLeft:"6px",marginRight:"6px"}} name={post.firstName+" "+post.lastName} round={true} size="45"/>
+            <Avatar
+              style={{ marginLeft: "6px", marginRight: "6px" }}
+              name={post.firstName + " " + post.lastName}
+              round={true}
+              size="45"
+            />
           )}
 
           <div className="p-1">
@@ -44,7 +50,13 @@ export const PostItem = ({ post }) => {
       </div>
       <div className="post-body">
         <p className="p-2 fs-6 pb-0">{post.description}</p>
-        <img src={post.content} className="img-fluid mb-1" alt="exerice1" />
+        <div style={{height:"240px",overflow:"hidden"}}>
+          <img
+            src={config.URL_PHOTOS + post.content}
+            className="img-fluid mb-1"
+            alt="exerice1"
+          />
+        </div>
       </div>
       <div className="post-footer d-flex justify-content-between">
         <div className="reactions">
