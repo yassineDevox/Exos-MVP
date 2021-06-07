@@ -16,7 +16,7 @@ const SUBJECTS = [
 
 function Subject(props) {
   return (
-    <div className="setting-link m-2 p-2">
+    <div className={props.isActive ? "setting-link m-2 p-2 active-tag":"setting-link m-2 p-2"} >
       <img src={props.img} className="link-icon"/>
       <span className=" ms-1 text-capitalize"> {props.name}</span>
     </div>

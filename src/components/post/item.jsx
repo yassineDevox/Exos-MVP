@@ -31,7 +31,7 @@ export const PostItem = ({ post }) => {
               {post.firstName + " " + post.lastName}
             </span>
             <br />
-            <small className="text-secondary">{post.dateCreation}</small>
+            <small className="text-secondary">{(new Date(post.dateCreation)).getDate()} d</small>
             <br />
           </div>
         </div>
@@ -49,6 +49,12 @@ export const PostItem = ({ post }) => {
         </div>
       </div>
       <div className="post-body">
+      <span  className={post.matiere=='Mathématique'? "badge bg-info":"d-none"} >MATH</span>
+      <span  className={post.matiere=='Physique-Chimie'? "badge bg-primary":"d-none"} >PHY</span>
+      <span  className={post.matiere=='AUTRE'? "badge bg-warning":"d-none"} >AUTRE</span>
+      <span  className={post.matiere=='Svt'? "badge bg-success":"d-none"} >SVT</span>
+      <span  className={post.matiere=='Informatique'? "badge bg-secondary":"d-none"} >INFO</span>
+      
         <p className="p-2 fs-6 pb-0">{post.description}</p>
         <div style={{height:"240px",overflow:"hidden"}}>
           <img

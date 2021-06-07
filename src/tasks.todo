@@ -13,8 +13,8 @@ fix issues for production:
         ✔ display shared user's info into the header and home @started(21-06-05 13:32) @done(21-06-05 14:16) @lasted(44m1s)
         ✔ get the the list of posts based on user's level @started(21-06-06 10:56) @done(21-06-06 12:15) @lasted(1h19m44s)
         ✔ display the data retrieved in the home page @started(21-06-06 12:16) @done(21-06-06 12:38) @lasted(22m20s)
-        ☐ filter by level feature  
-        ☐ filter by tags feature  
+        ☐ filter by level feature
+        ✘ filter by tags feature @started(21-06-07 07:50) @cancelled(21-06-07 08:56) @wasted(1h7m)
     ☐ fix respensive design issues 
     ☐ add new post feature
     
