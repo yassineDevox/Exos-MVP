@@ -1,5 +1,5 @@
 import SubjectEnum from "../models/enum-subjects";
-import React from "react";
+import React, { useState } from "react";
 import m from "../assets/images/math.svg";
 import c from "../assets/images/computer.svg";
 import p from "../assets/images/physic.png";
@@ -15,14 +15,31 @@ const SUBJECTS = [
 ];
 
 function Subject(props) {
+
   return (
-    <div className={props.isActive ? "setting-link m-2 p-2 active-tag":"setting-link m-2 p-2"} >
-      <img src={props.img} className="link-icon"/>
+    <div
+      onClick={props.onActive}
+      className={
+        props.isActive ? "setting-link m-2 p-2 active-tag" : "setting-link m-2 p-2"
+      }
+    >
+      <img src={props.img} className="link-icon" />
       <span className=" ms-1 text-capitalize"> {props.name}</span>
     </div>
   );
 }
 
 export default function Subjects() {
-  return SUBJECTS.map((s, i) => <Subject key={i} img={s.img} name={s.name} />);
+  
+  const [isActive, setIsActive] = useState(false);
+  
+  return SUBJECTS.map((s, i) => (
+    <Subject
+      onActive={() => setIsActive(!isActive)}
+      isActive={isActive}
+      key={i}
+      img={s.img}
+      name={s.name}
+    />
+  ));
 }
