@@ -15,6 +15,7 @@ fix issues for production:
         ✔ display the data retrieved in the home page @started(21-06-06 12:16) @done(21-06-06 12:38) @lasted(22m20s)
         ☐ filter by level feature
         ✘ filter by tags feature @started(21-06-07 07:50) @cancelled(21-06-07 08:56) @wasted(1h7m)
+        ✔ filter by tags and level feature part 1 ui @started(21-06-08 15:39) @done(21-06-08 16:28) @lasted(49m37s)
     ☐ fix respensive design issues 
     ☐ add new post feature
     

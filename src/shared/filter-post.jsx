@@ -8,10 +8,10 @@ export const FilterPost = (props) => {
   return (
     <section className={ props.bySubject ? "filter-tag":"menu-lg" } >
       <div className="border p-2">
-        <button className="setting-link m-1 p-1 border">
+        <div className="setting-link m-1 p-1 border">
           <img height="34" width="34" src={filterIcon} className="link-icon" alt="avatar" />
           <span className="text-uppercase fw-bold"> filtrer par <span className="filter-target">{props.title}</span></span>
-        </button>
+        </div>
          { props.bySubject ? <Subjects  /> : <Levels /> }
       </div>
     </section>
