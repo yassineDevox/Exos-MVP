@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import PostContext from "../shared/context/post.context";
 
 
@@ -6,7 +6,7 @@ function Level(props) {
   const {setLevelToActive} = useContext(PostContext)
   return (
     <div
-      onClick={() => setLevelToActive(props.id)}
+      onClick={() => setLevelToActive(props)}
       className={
         props.isActive
           ? "setting-link m-2 p-2 active-tag"

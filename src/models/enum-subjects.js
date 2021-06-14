@@ -1,9 +1,9 @@
 export default class SubjectEnum {
   
     //private fields 
-    static #_MATH = "mathematique";
+    static #_MATH = "Mathématique";
     static #_SVT = "svt";
-    static #_PHYS = "physique";
+    static #_PHYS = "Physique-Chimie";
     static #_INFORMATIQUE = "informatique";
     static #_AUTRE = "autre";
 

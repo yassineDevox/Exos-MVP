@@ -16,6 +16,7 @@ fix issues for production:
         ☐ filter by level feature
         ✘ filter by tags feature @started(21-06-07 07:50) @cancelled(21-06-07 08:56) @wasted(1h7m)
         ✔ filter by tags and level feature part 1 ui @started(21-06-08 15:39) @done(21-06-08 16:28) @lasted(49m37s)
+    ✔ filter by level and subject @started(21-06-14 11:09) @done(21-06-14 13:00) @lasted(1h51m40s)
     ☐ fix respensive design issues 
     ☐ add new post feature
     

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import PostContext from "../shared/context/post.context";
 
 function Subject(props) {
@@ -6,7 +6,7 @@ function Subject(props) {
   const {setSubjectToActive} = useContext(PostContext)
   return (
     <div
-      onClick={()=>setSubjectToActive(props.id)}
+      onClick={()=>setSubjectToActive(props)}
       className={
         props.isActive ? "setting-link m-2 p-2 active-tag" : "setting-link m-2 p-2"
       }
