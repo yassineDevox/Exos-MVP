@@ -46,50 +46,98 @@ export class PostProvider extends Component {
       subjects: SUBJECTS,
     };
   }
+  //-------- <util functions 
+  doFilter = (list) => {
+    let f = false;
+    for (let i = 0; i < list.length; i++)
+      if (list[i].isActive) f = true;
+    return f;
+  }
 
-  setLevelToActive = (selectedLevel) => {
-    let newlevels = this.state.levels;
+  setListState = (listStateName,id)=>{
 
-    newlevels.forEach((l, index) => {
-      if (index == selectedLevel.id) l.isActive = !l.isActive;
+    let newSubjects = this.state[listStateName];
+    
+    newSubjects.forEach((l, index) => {
+      if (index == id) l.isActive = !l.isActive;
       else l.isActive = false;
     });
-    this.setState({ levels: newlevels });
+    
+    this.setState({ [listStateName]: newSubjects });
 
-    let doFilter = false;
-    for (let i = 0; i < this.state.levels.length; i++)
-      if (this.state.levels[i].isActive) doFilter = true;
+  }
 
-    if (doFilter)
-      this.setState({
-        posts: this.state.postsBackup.filter(
-          (p) => p.niveau == selectedLevel.name
-        ),
-      });
-    else this.setState({ posts: this.state.postsBackup });
+  setCurrentUsersLevel = ()=>{
+    
+    let newLevels = this.state.levels;
+    let usersLevel = this.context.currentUser?.niveau;
+
+    if ( usersLevel?.toLowerCase().startsWith("c"))
+      newLevels[0].isActive = true;
+    
+      else if ( usersLevel?.toLowerCase().startsWith("t"))
+      newLevels[1].isActive = true;
+    
+      else if ( usersLevel?.toLowerCase().startsWith("s"))
+      newLevels[4].isActive = true;
+    
+      if (
+         usersLevel?.toLowerCase().startsWith("b") &&
+         usersLevel?.includes("1")
+      )
+      newLevels[2].isActive = true;
+
+      else newLevels[3].isActive = true;
+
+      this.setState({levels:newLevels});
+  }
+  getLevelsValue = (name) => {
+
+    let NAME_LEVELS = ["COLLEGE","TC","1BAC","2BAC","SUP"];
+    if(name.toLowerCase().startsWith("c")) return NAME_LEVELS[0];
+    else if (name.toLowerCase().startsWith("t")) return NAME_LEVELS[1];
+    else if (name.includes("1")) return NAME_LEVELS[2];
+    else if (name.includes("2")) return NAME_LEVELS[3];
+    else return NAME_LEVELS[4];
+
+  }
+  //-------- util functions />  
+
+  //filter posts by the selected level 
+  setLevelToActive = (selectedLevel) => {
+
+      //set the selected level within the levels list 
+      this.setListState("levels",selectedLevel.id); 
+
+      // get the new posts list from the server 
+      if (this.doFilter(this.state.levels))
+      {
+        PostService.getAllByLevel(this.getLevelsValue(selectedLevel.name))
+        .then(( data ) => console.log(data) )
+        .catch( error => console.log(error) )
+      }
+  
+
+      else this.setState({ posts: this.state.postsBackup });
   };
 
+  //filter posts by the selected subject 
   setSubjectToActive = (selectedSubject) => {
-    let newSubjects = this.state.subjects;
-    newSubjects.forEach((l, index) => {
-      if (index == selectedSubject.id) l.isActive = !l.isActive;
-      else l.isActive = false;
-    });
-    this.setState({ subjects: newSubjects });
+    
+    //set the selected level within the subjects list 
+    this.setListState("subjects",selectedSubject.id); 
 
-    let doFilter = false;
+  
+    if (this.doFilter(this.state.subjects)) {
 
-    for (let i = 0; i < newSubjects.length; i++)
-      if (newSubjects[i].isActive) doFilter = true;
-
-    console.log(doFilter);
-    if (doFilter) {
       let filtredList = this.state.postsBackup.filter(
         (p) => p.matiere == selectedSubject.name
       );
+      
       this.setState({
         posts: filtredList,
       });
+    
     } else this.setState({ posts: this.state.postsBackup });
   };
 
@@ -103,27 +151,8 @@ export class PostProvider extends Component {
         });
       }
     );
-
-    let newLevels = this.state.levels;
-
-    if (this.context.currentUser && this.context.currentUser.niveau?.toLowerCase().startWith("c"))
-      newLevels[0].isActive = true;
-    
-      else if (this.context.currentUser && this.context.currentUser.niveau?.toLowerCase().startWith("t"))
-      newLevels[1].isActive = true;
-    
-      else if (this.context.currentUser && this.context.currentUser.niveau?.toLowerCase().startWith("s"))
-      newLevels[4].isActive = true;
-    
-      if (
-        this.context.currentUser && this.context.currentUser.niveau?.toLowerCase().startWith("b") &&
-        this.context.currentUser && this.context.currentUser.niveau?.contain("1")
-      )
-      newLevels[2].isActive = true;
-
-      else newLevels[3].isActive = true;
-
-      this.setState({levels:newLevels});
+    // adaptation of name filters items and value (backend)
+    this.setCurrentUsersLevel();  
   }
 
   render() {

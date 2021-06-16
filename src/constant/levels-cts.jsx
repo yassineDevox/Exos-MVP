@@ -22,6 +22,7 @@ function Level(props) {
 export default function Levels() {
 
   const {levels} = useContext(PostContext)
+  
   return levels.map((l, i) => (
     <Level
       key={i}
