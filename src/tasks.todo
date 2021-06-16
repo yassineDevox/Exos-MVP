@@ -18,8 +18,8 @@ fix issues for production:
         ✔ filter by tags and level feature part 1 ui @started(21-06-08 15:39) @done(21-06-08 16:28) @lasted(49m37s)
     ✔ filter by level and subject @started(21-06-14 11:09) @done(21-06-14 13:00) @lasted(1h51m40s)
     ✔ improve some code @done(21-06-16 17:39)
-    ⭘ get posts by level @started(21-06-16 17:41)
-    ☐ add spinner while waiting for the whole page 
+    ✔ get posts by level @started(21-06-16 17:41) @done(21-06-16 18:25) @lasted(44m7s)
+    ☐ add spinner while waiting for the whole page && data loading 
     ☐ fix respensive design issues 
     ☐ add new post feature
     
