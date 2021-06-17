@@ -40,6 +40,7 @@ export class PostProvider extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading:true,
       posts: [],
       postsBackup: [],
       levels: LEVELS,
@@ -148,6 +149,7 @@ export class PostProvider extends Component {
         this.setState({
           posts: response.data.content,
           postsBackup: response.data.content,
+          loading:false
         });
       }
     );
@@ -156,7 +158,7 @@ export class PostProvider extends Component {
   }
 
   render() {
-    const { posts, levels, subjects } = this.state;
+    const { posts, levels, subjects,loading } = this.state;
     const { setLevelToActive, setSubjectToActive } = this;
     return (
       <PostContext.Provider
@@ -166,6 +168,7 @@ export class PostProvider extends Component {
           subjects,
           setLevelToActive,
           setSubjectToActive,
+          loading
         }}
       >
         {this.props.children}
