@@ -13,13 +13,12 @@ fix issues for production:
         ✔ display shared user's info into the header and home @started(21-06-05 13:32) @done(21-06-05 14:16) @lasted(44m1s)
         ✔ get the the list of posts based on user's level @started(21-06-06 10:56) @done(21-06-06 12:15) @lasted(1h19m44s)
         ✔ display the data retrieved in the home page @started(21-06-06 12:16) @done(21-06-06 12:38) @lasted(22m20s)
-        ☐ filter by level feature
         ✘ filter by tags feature @started(21-06-07 07:50) @cancelled(21-06-07 08:56) @wasted(1h7m)
         ✔ filter by tags and level feature part 1 ui @started(21-06-08 15:39) @done(21-06-08 16:28) @lasted(49m37s)
     ✔ filter by level and subject @started(21-06-14 11:09) @done(21-06-14 13:00) @lasted(1h51m40s)
     ✔ improve some code @done(21-06-16 17:39)
     ✔ get posts by level @started(21-06-16 17:41) @done(21-06-16 18:25) @lasted(44m7s)
-    ⭘ add spinner while waiting for the whole page && data loading @started(21-06-17 07:02)
+    ✔ add spinner while waiting for the whole page && data loading @started(21-06-17 07:02) @done(21-06-17 08:09) @lasted(1h7m1s)
     ☐ fix respensive design issues 
     ☐ add new post feature
     
