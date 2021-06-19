@@ -1,3 +1,17 @@
+/* add post style customization */
+
+form.add-post .btn-success {
+    color: #fff;
+    background-color: #1ab12f99;
+    border-color: #19875461;
+}
+
+form.add-post .btn-primary {
+  color: #fff;
+  background-color: #0dcaf0;
+  border-color: #0dcaf0;
+}
+/*----------*/
 .menu {
   opacity: 1 !important;
 }
@@ -11,7 +25,6 @@
   margin: 5px;
   background-color: #e4e6eb;
   cursor: pointer;
-  /* opacity: 0.9; */
 }
 .circle-icon:hover,
 .menu:not() {

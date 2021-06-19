@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
+import SubjectEnum from "../../models/enum-subjects";
 
-export const FormPost = () => {
+export const FormPost = (props) => {
+  const inputRef = useRef(null);
   return (
     <div
       className="modal fade"
@@ -26,8 +28,8 @@ export const FormPost = () => {
             />
           </div>
           <div className="modal-body">
-            {/* signup form */}
-            <form>
+            {/* add post form */}
+            <form onSubmit={props.hanleSubmit} className="add-post">
               <div className="mb-3">
                 <label
                   htmlFor="exampleFormControlTextarea1"
@@ -39,29 +41,42 @@ export const FormPost = () => {
                   className="form-control"
                   id="exampleFormControlTextarea1"
                   rows={3}
-                  defaultValue={""}
+                  onChange={props.handleChange}
+                  name="description"
                 />
               </div>
-              <select
-                className="form-select mb-3"
-                aria-label="Default select example"
-              >
-                <option defaultValue>Matiére</option>
-                <option value={1}>Math</option>
-                <option value={2}>Physique</option>
-                <option value={3}>Svt</option>
-                <option value={4}>Autre</option>
-              </select>
-              <div className="text-center">
-                <button className="btn btn-success btn-md">
+
+              <div className="d-flex justify-content-between">
+                <select
+                  className="form-select w-50"
+                  onChange={props.handleChange}
+                  name="matiere"
+                >
+                  <option defaultValue>Matiére</option>
+                  <option value={SubjectEnum.MATH}> Mathématique </option>
+                  <option value={SubjectEnum.PHYS}> Physique-chimie </option>
+                  <option value={SubjectEnum.SVT}> Svt </option>
+                  <option value={SubjectEnum.AUTRE}> Autre </option>
+                </select>
+                <button 
+                  className="btn btn-success btn-md" 
+                  type="button"
+                  onClick={()=> inputRef.current.click()} 
+                >
                   {" "}
-                  <i className="far fa-image" /> Ajouter une photo
+                  <i className="far fa-image" /> Exercice Format Image
                 </button>
-                <input type="file" className="form-control d-none" />
+                <input
+                  ref={inputRef}
+                  type="file"
+                  className="form-control d-none"
+                  onChange={props.handleChange}
+                  name="content"
+                />
               </div>
               <br />
               <div className="text-center d-grid gap-2">
-                <button className="btn btn-primary btn-sm" type="button">
+                <button className="btn btn-primary btn-sm" type="submit">
                   Poster
                 </button>
               </div>
@@ -75,4 +90,3 @@ export const FormPost = () => {
 };
 
 export default FormPost;
-

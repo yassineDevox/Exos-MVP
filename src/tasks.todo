@@ -19,6 +19,12 @@ fix issues for production:
     ✔ improve some code @done(21-06-16 17:39)
     ✔ get posts by level @started(21-06-16 17:41) @done(21-06-16 18:25) @lasted(44m7s)
     ✔ add spinner while waiting for the whole page && data loading @started(21-06-17 07:02) @done(21-06-17 08:09) @lasted(1h7m1s)
-    ☐ fix respensive design issues 
-    ☐ add new post feature
+    add post tasks:
+        ✔ design improvement @started(21-06-19 11:30) @done(21-06-19 12:03) @lasted(34m)
+        ⭘ bind the form's inputs with the home's state @started(21-06-19 12:10)
+        ☐ inputs form validation   
+        ☐ send the image to ibm-server and get the link   
+        ☐ send all post's data to the server   
+        ☐ wait for the notification of the server (post added event)  
+
     

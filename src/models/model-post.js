@@ -1,4 +1,22 @@
-export default class PostModel {
+export class NewPost {
+  constructor(
+    type="image",
+    content="",
+    description="",
+    matiere="",
+    niveau="",
+    userId=""
+  ) {
+    this.content = content;
+    this.description = description;
+    this.matiere = matiere;
+    this.niveau = niveau;
+    this.userId = userId;
+    this.type = type;
+  }
+}
+
+export default class PostModel extends NewPost {
   constructor(
     avatar,
     content,
@@ -14,20 +32,22 @@ export default class PostModel {
     publicationId,
     type,
     userId
-    ) {
-    this.avatar = avatar;
-    this.content = content;
-    this.dateCreation = dateCreation;
-    this.description = description;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.matiere = matiere;
-    this.niveau = niveau;
+  ) {
+    NewPost(
+      type,
+      content,
+      description,
+      matiere,
+      niveau,
+      userId
+    );
     this.numberComment = numberComment;
+    this.dateCreation = dateCreation;
     this.numberLikes = numberLikes;
     this.numberSolution = numberSolution;
     this.publicationId = publicationId;
-    this.type = type;
-    this.userId = userId;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.avatar = avatar;
   }
 }
