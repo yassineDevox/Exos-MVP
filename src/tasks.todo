@@ -21,7 +21,7 @@ fix issues for production:
     ✔ add spinner while waiting for the whole page && data loading @started(21-06-17 07:02) @done(21-06-17 08:09) @lasted(1h7m1s)
     add post tasks:
         ✔ design improvement @started(21-06-19 11:30) @done(21-06-19 12:03) @lasted(34m)
-        ⭘ bind the form's inputs with the home's state @started(21-06-19 12:10)
+        ✔ bind the form's inputs with the home's state @started(21-06-19 12:10) @done(21-06-19 13:10) @lasted(1h27s)
         ☐ inputs form validation   
         ☐ send the image to ibm-server and get the link   
         ☐ send all post's data to the server   
