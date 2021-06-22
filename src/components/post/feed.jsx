@@ -16,7 +16,14 @@ export const Feed = () => {
             height={50}
             alt="avatar"
           />
-          <button className="btn text-start"> Publier Un Exercice </button>
+          <button
+            className="btn text-start"
+            data-bs-toggle="modal"
+            data-bs-target="#newPostModal"
+          >
+            {" "}
+            Publier Un Exercice{" "}
+          </button>
         </section>
         <section id="posts" className="mt-1">
           <ListPost />

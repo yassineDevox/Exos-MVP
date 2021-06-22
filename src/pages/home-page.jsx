@@ -10,7 +10,9 @@ export default class HomePage extends Component {
   constructor() {
     super();
     this.state = {
-      newPost: new NewPost()
+      newPost: new NewPost(),
+      isLoading:false,
+      err:"",
     }
   }
   render() {
@@ -30,9 +32,36 @@ export default class HomePage extends Component {
         {/* Modals */}
         <FormPost 
             handleChange = {this.handleChangeInput}
+            handleSubmit = {this.addPost}
+            err={this.state.err}
+            isLoading={this.state.isLoading}
+            onExitedModal={this.clearStates}
         />
       </>
     );
+  }
+
+  clearStates = () => {
+    this.setState({ err: "",newPost: new NewPost() });
+    document.querySelector("form.add-post").reset();
+  }
+
+  isFormValid = () => {
+    console.log(this.state.newPost.isEmpty());
+    
+    if(this.state.newPost.isEmpty())
+    {
+        this.setState({err:"Veuliez Remplir toute les champs !"});
+        return false;
+    }
+    return true;
+
+  }
+
+
+  addPost = (e) =>{
+    e.preventDefault();
+    if(this.isFormValid()) alert("send post data to the server . . .");
   }
 
   handleChangeInput = (e) => {

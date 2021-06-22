@@ -111,7 +111,8 @@ export const Header_LT = () => {
           <div className="d-flex align-items-center">
             <img src={AvatarMock} className="avatar" alt="avatar" />
             <div className="user-info ms-2">
-              <h5>Yassine Devs</h5>
+            <h5>{currentUser.firstName + " " + currentUser.lastName}</h5>
+
               <p className="text-secondary small">Voir profile ?</p>
             </div>
           </div>

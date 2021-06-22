@@ -22,7 +22,7 @@ fix issues for production:
     add post tasks:
         ✔ design improvement @started(21-06-19 11:30) @done(21-06-19 12:03) @lasted(34m)
         ✔ bind the form's inputs with the home's state @started(21-06-19 12:10) @done(21-06-19 13:10) @lasted(1h27s)
-        ☐ inputs form validation   
+        ⭘ inputs form validation @started(21-06-22 10:32)
         ☐ send the image to ibm-server and get the link   
         ☐ send all post's data to the server   
         ☐ wait for the notification of the server (post added event)  

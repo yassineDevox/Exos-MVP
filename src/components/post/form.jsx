@@ -8,8 +8,11 @@ export const FormPost = (props) => {
       className="modal fade"
       id="newPostModal"
       tabIndex={-1}
-      aria-labelledby="exampleModalLabel"
+      aria-labelledby="exampleModalLabel"      
+      data-bs-backdrop="static" 
+      data-bs-keyboard="false"
       aria-hidden="true"
+      onClick={props.onExitedModal}
     >
       <div className="modal-dialog">
         <div className="modal-content">
@@ -29,7 +32,7 @@ export const FormPost = (props) => {
           </div>
           <div className="modal-body">
             {/* add post form */}
-            <form onSubmit={props.hanleSubmit} className="add-post">
+            <form onSubmit={props.handleSubmit} className="add-post">
               <div className="mb-3">
                 <label
                   htmlFor="exampleFormControlTextarea1"
@@ -76,9 +79,28 @@ export const FormPost = (props) => {
               </div>
               <br />
               <div className="text-center d-grid gap-2">
-                <button className="btn btn-primary btn-sm" type="submit">
+                <button className="btn btn-primary btn-sm" type="submit" >
                   Poster
+                  <div
+                    style={{
+                      zoom: 0.6,
+                      marginTop: "14px",
+                      marginLeft: "10px",
+                      padding: "10px",
+                    }}
+                    className={props.isLoading ? "spinner-border" : "d-none"}
+                    role="status"
+                  >
+                    <span className="sr-only">Loading...</span>
+                  </div>
                 </button>
+                <span
+                  className={
+                    props.err != "" ? "text-center text-danger mb-0" : "d-none"
+                  }
+                >
+                  {props.err}
+                </span>
               </div>
             </form>
             {/* /signup form */}
