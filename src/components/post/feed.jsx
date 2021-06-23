@@ -21,8 +21,7 @@ export const Feed = () => {
             data-bs-toggle="modal"
             data-bs-target="#newPostModal"
           >
-            {" "}
-            Publier Un Exercice{" "}
+            Publier Un Exercice
           </button>
         </section>
         <section id="posts" className="mt-1">

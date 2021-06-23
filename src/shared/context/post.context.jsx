@@ -90,7 +90,7 @@ export class PostProvider extends Component {
 
       else newLevels[3].isActive = true;
 
-      this.setState({levels:newLevels});
+      this.setState({ levels : newLevels });
   }
   getLevelsValue = (name) => {
 
@@ -141,6 +141,22 @@ export class PostProvider extends Component {
     
     } else this.setState({ posts: this.state.postsBackup });
   };
+
+  //-------- Add Post
+  addPost = (newPost) => {
+    //send avatar to ibm server and get the urlToken
+    PostService.addAvatarToIbmServer(newPost.avatar)
+    .then((response)=>{
+      console.log(response.data);
+      //get the url 
+      let urlToken = reponse.data.url;
+      // PostService.add({...newPost,avatar:urlToken})
+    })
+    .catch((err)=>{
+      console.log(err)
+    })
+
+  }
 
   // onrefreach the pages i think yeah here i will initialize again the user's infos
   componentDidMount() {

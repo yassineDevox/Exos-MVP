@@ -11,7 +11,7 @@ export const PostItem = ({ post }) => {
         <div className="d-flex">
           {post.avatar != null ? (
             <img
-              src={config.URL_PHOTOS + post.avatar}
+              src = { config.URL_PHOTOS + post.avatar }
               alt="img"
               className="img-circle border m-1"
               height={40}
@@ -28,11 +28,11 @@ export const PostItem = ({ post }) => {
 
           <div className="p-1">
             <span className="text-capitalize">
-              {post.firstName + " " + post.lastName}
+              { post.firstName + " " + post.lastName}
             </span>
             <br />
             <small className="text-secondary">
-              {new Date(post.dateCreation).getDate()} d
+              { new Date(post.dateCreation).getDate() } 
             </small>
             <br />
           </div>

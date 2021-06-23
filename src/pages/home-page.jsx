@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Feed from "../components/post/feed";
 import FormPost from "../components/post/form";
 import { NewPost } from "../models/model-post";
+import PostContext from "../shared/context/post.context";
 import FilterPost from "../shared/filter-post";
 import Header_LT from "../shared/header";
 import "./../assets/css/home.css";
@@ -61,7 +62,11 @@ export default class HomePage extends Component {
 
   addPost = (e) =>{
     e.preventDefault();
-    if(this.isFormValid()) alert("send post data to the server . . .");
+    if(this.isFormValid()){
+      //send image to IBM server and get the urlToken 
+      
+    }
+
   }
 
   handleChangeInput = (e) => {
@@ -73,3 +78,5 @@ export default class HomePage extends Component {
     this.setState({newPost:p});
   }
 }
+
+HomePage.contextType = PostContext;

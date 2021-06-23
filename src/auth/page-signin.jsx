@@ -98,7 +98,7 @@ export default class SigninPage extends Component {
       });
   };
 
-  //-----signin
+  //-----Signin
   doSignIn = () => {
     const { email, mdp } = this.state;
 
@@ -119,6 +119,7 @@ export default class SigninPage extends Component {
       });
   };
 
+  //------Validation
   formIsValid = (formName) => {
     switch (formName) {
       case "IN": {
