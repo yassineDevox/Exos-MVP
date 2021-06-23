@@ -140,19 +140,20 @@ export class PostProvider extends Component {
       });
     
     } else this.setState({ posts: this.state.postsBackup });
+  
   };
 
   //-------- Add Post
   addPost = (newPost) => {
     //send avatar to ibm server and get the urlToken
     PostService.addAvatarToIbmServer(newPost.avatar)
-    .then((response)=>{
+    .then((response) => {
       console.log(response.data);
       //get the url 
       let urlToken = reponse.data.url;
       // PostService.add({...newPost,avatar:urlToken})
     })
-    .catch((err)=>{
+    .catch((err) => {
       console.log(err)
     })
 
