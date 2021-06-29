@@ -23,7 +23,8 @@ fix issues for production:
         ✔ design improvement @started(21-06-19 11:30) @done(21-06-19 12:03) @lasted(34m)
         ✔ bind the form's inputs with the home's state @started(21-06-19 12:10) @done(21-06-19 13:10) @lasted(1h27s)
         ✔ inputs form validation @started(21-06-22 10:32) @done(21-06-22 11:00) @lasted(28m47s)
-        ⭘ send the image to ibm-server and get the link @started(21-06-23 13:15)
+        ✘ send the image to ibm-server and get the link @started(21-06-23 13:15) @cancelled(21-06-28 07:19) @wasted(4d18h4m28s)
+        ⭘ send the image to ibm-server and get the link @started(21-06-28 07:19)
         ☐ send all post's data to the server   
         ☐ wait for the notification of the server (post added event)  
 

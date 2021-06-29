@@ -12,9 +12,10 @@ export default class HomePage extends Component {
     super();
     this.state = {
       newPost: new NewPost(),
-      isLoading:false,
-      err:"",
-    }
+      isLoading: false,
+      isLoadingImg:false,
+      err: "",
+    };
   }
   render() {
     return (
@@ -31,52 +32,82 @@ export default class HomePage extends Component {
           <FilterPost title="Matiére " bySubject />
         </main>
         {/* Modals */}
-        <FormPost 
-            handleChange = {this.handleChangeInput}
-            handleSubmit = {this.addPost}
-            err={this.state.err}
-            isLoading={this.state.isLoading}
-            onExitedModal={this.clearStates}
+        <FormPost
+          handleChange={this.handleChangeInput}
+          handleSubmit={this.addPost}
+          err={this.state.err}
+          isLoading={this.state.isLoading}
+          isLoadingImg={this.state.isLoadingImg}
+          onExitedModal={this.clearStates}
+          handleChangeImage = {this.uploadImage}
         />
       </>
     );
   }
 
-  clearStates = () => {
-    this.setState({ err: "",newPost: new NewPost() });
-    document.querySelector("form.add-post").reset();
+  uploadImage = (event)=>{
+
+    this.setState({ isLoadingImg : true })
+    if(  
+      event.target.files[0].type === "image/png" ||
+      event.target.files[0].type === "image/jpg" ||
+      event.target.files[0].type === "image/jpeg")
+    {
+      let picture = event.target.files[0];
+      let pictureLink = "";
+      let pictureLabel = event.target.files[0].name;
+
+      if (picture.size > 5 * 1024 * 1024) {
+        this.setState({err:"La taille du fichier est trop volumineuse"});
+        return;
+      }
+      //upload image 
+
+      const reader = new FileReader();
+      reader.readAsDataURL(picture);
+
+      reader.onload = () => {
+
+          pictureLabel = picture.name;
+          
+      };
+
+    }
+    else {
+      this.setState({err:"On accepte : png , jpeg , jpg",isLoadingImg:false});
+    }
+
+
   }
+
+  clearStates = () => {
+    this.setState({ err: "", newPost: new NewPost() });
+    document.querySelector("form.add-post").reset();
+  };
 
   isFormValid = () => {
     console.log(this.state.newPost.isEmpty());
-    
-    if(this.state.newPost.isEmpty())
-    {
-        this.setState({err:"Veuliez Remplir toute les champs !"});
-        return false;
+
+    if (this.state.newPost.isEmpty()) {
+      this.setState({ err: "Veuliez Remplir toute les champs !" });
+      return false;
     }
     return true;
+  };
 
-  }
-
-
-  addPost = (e) =>{
+  addPost = (e) => {
     e.preventDefault();
-    if(this.isFormValid()){
-      //send image to IBM server and get the urlToken 
-      
+    if (this.isFormValid()) {
+      //send image to IBM server and get the urlToken
     }
-
-  }
+  };
 
   handleChangeInput = (e) => {
-    
-    let p = this.state.newPost;
 
-    p[e.target.name] = e.target.value;
-
-    this.setState({newPost:p});
-  }
+    this.setState(
+      (prevState) => (prevState.newPost[e.target.name] = e.target.value)
+    );
+  };
 }
 
 HomePage.contextType = PostContext;

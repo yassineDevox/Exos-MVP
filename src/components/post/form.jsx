@@ -8,11 +8,10 @@ export const FormPost = (props) => {
       className="modal fade"
       id="newPostModal"
       tabIndex={-1}
-      aria-labelledby="exampleModalLabel"      
-      data-bs-backdrop="static" 
+      aria-labelledby="exampleModalLabel"
+      data-bs-backdrop="static"
       data-bs-keyboard="false"
       aria-hidden="true"
-      onClick={props.onExitedModal}
     >
       <div className="modal-dialog">
         <div className="modal-content">
@@ -28,6 +27,7 @@ export const FormPost = (props) => {
               className="btn-close"
               data-bs-dismiss="modal"
               aria-label="Close"
+              onClick={props.onExitedModal}
             />
           </div>
           <div className="modal-body">
@@ -61,10 +61,10 @@ export const FormPost = (props) => {
                   <option value={SubjectEnum.SVT}> Svt </option>
                   <option value={SubjectEnum.AUTRE}> Autre </option>
                 </select>
-                <button 
-                  className="btn btn-success btn-md" 
+                <button
+                  className="btn btn-success btn-md"
                   type="button"
-                  onClick={()=> inputRef.current.click()} 
+                  onClick={() => inputRef.current.click()}
                 >
                   {" "}
                   <i className="far fa-image" /> Exercice Format Image
@@ -73,13 +73,25 @@ export const FormPost = (props) => {
                   ref={inputRef}
                   type="file"
                   className="form-control d-none"
-                  onChange={props.handleChange}
+                  onChange={props.handleChangeImage}
                   name="content"
                 />
+                 <div
+                    style={{
+                      zoom: 0.6,
+                      marginTop: "14px",
+                      marginLeft: "10px",
+                      padding: "10px",
+                    }}
+                    className={props.isLoadingImg ? "spinner-border" : "d-none"}
+                    role="status"
+                  >
+                    <span className="sr-only">Loading...</span>
+                  </div>
               </div>
               <br />
               <div className="text-center d-grid gap-2">
-                <button className="btn btn-primary btn-sm" type="submit" >
+                <button className="btn btn-primary btn-sm" type="submit">
                   Poster
                   <div
                     style={{

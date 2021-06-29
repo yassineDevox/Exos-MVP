@@ -161,7 +161,8 @@ export class PostProvider extends Component {
 
   // onrefreach the pages i think yeah here i will initialize again the user's infos
   componentDidMount() {
-    PostService.getAllByLevel(this.context.currentUser?.niveau).then(
+    PostService.getAllByLevel(this.context.currentUser?.niveau)
+    .then(
       (response) => {
         this.setState({
           posts: response.data.content,
