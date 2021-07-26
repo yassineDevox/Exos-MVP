@@ -12,11 +12,10 @@ class PostService {
     );
   }
 
-  addAvatarToIbmServer(avatarFile){
+  addPublicationContentToIbmServer(pubContent){
     return axios.post(
       config.url.UPLOAD,
-     { avatarFile },
-    { headers : authHeader() }
+     { pubContent },
     )
   }
 

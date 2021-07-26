@@ -5,9 +5,18 @@ import helpMock from "./../assets/images/help.png";
 import AuthContext from "../auth/auth-context";
 import Avatar from "react-avatar";
 import { config } from "../api/url";
+import PostContext from "./context/post.context";
 
 export const Header_LT = () => {
+  
   const { logout, currentUser } = useContext(AuthContext);
+  const {filterByDescription} = useContext(PostContext)
+  
+  const filterPosts = (event)=>{
+    filterByDescription(event.target.value)
+  }
+
+
   return (
     <header className="border d-flex justify-content-between p-1 sticky-top bg-white">
       <div className="left d-flex ms-2">
@@ -20,7 +29,10 @@ export const Header_LT = () => {
         />
         <div className="search border">
           {" "}
-          <input type="text" placeholder="Search For Something ?" />{" "}
+          <input type="text" 
+                  placeholder="Search For Something ?" 
+                  onKeyUp={filterPosts}
+                  />{" "}
           <i className="fas fs-6 fa-search" />
         </div>
         <div className="circle-icon d-md-none">
@@ -111,7 +123,7 @@ export const Header_LT = () => {
           <div className="d-flex align-items-center">
             <img src={AvatarMock} className="avatar" alt="avatar" />
             <div className="user-info ms-2">
-            <h5>{currentUser.firstName + " " + currentUser.lastName}</h5>
+              <h5>{currentUser.firstName + " " + currentUser.lastName}</h5>
 
               <p className="text-secondary small">Voir profile ?</p>
             </div>

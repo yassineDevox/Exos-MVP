@@ -13,7 +13,7 @@ export default class HomePage extends Component {
     this.state = {
       newPost: new NewPost(),
       isLoading: false,
-      isLoadingImg:false,
+      isLoadingImg: false,
       err: "",
     };
   }
@@ -39,26 +39,24 @@ export default class HomePage extends Component {
           isLoading={this.state.isLoading}
           isLoadingImg={this.state.isLoadingImg}
           onExitedModal={this.clearStates}
-          handleChangeImage = {this.uploadImage}
+          handleChangeImage={this.uploadImage}
         />
       </>
     );
   }
 
-  uploadImage = (event)=>{
+  uploadImage = (event) => {
 
-    this.setState({ isLoadingImg : true })
-    if(  
+    this.setState({ isLoadingImg: true })
+    if (
       event.target.files[0].type === "image/png" ||
       event.target.files[0].type === "image/jpg" ||
-      event.target.files[0].type === "image/jpeg")
-    {
+      event.target.files[0].type === "image/jpeg") {
       let picture = event.target.files[0];
-      let pictureLink = "";
       let pictureLabel = event.target.files[0].name;
 
       if (picture.size > 5 * 1024 * 1024) {
-        this.setState({err:"La taille du fichier est trop volumineuse"});
+        this.setState({ err: "La taille du fichier est trop volumineuse" });
         return;
       }
       //upload image 
@@ -68,13 +66,20 @@ export default class HomePage extends Component {
 
       reader.onload = () => {
 
-          pictureLabel = picture.name;
-          
+        pictureLabel = picture.name;
+        console.log(picture)
+        this.setState(
+          {
+            isLoadingImg: false, err: "",
+            newPost: { ...this.state.newPost, content: reader.result }
+          })
+
+
       };
 
     }
     else {
-      this.setState({err:"On accepte : png , jpeg , jpg",isLoadingImg:false});
+      this.setState({ err: "On accepte Que les formats : png , jpeg , jpg", isLoadingImg: false });
     }
 
 
@@ -86,12 +91,14 @@ export default class HomePage extends Component {
   };
 
   isFormValid = () => {
-    console.log(this.state.newPost.isEmpty());
 
-    if (this.state.newPost.isEmpty()) {
+    if (this.state.newPost.matiere == ""
+      || this.state.newPost.description == ""
+      || this.state.newPost.content == "") {
       this.setState({ err: "Veuliez Remplir toute les champs !" });
       return false;
     }
+    this.setState({ err: "" })
     return true;
   };
 
@@ -99,6 +106,7 @@ export default class HomePage extends Component {
     e.preventDefault();
     if (this.isFormValid()) {
       //send image to IBM server and get the urlToken
+      this.context.addPost(this.state.newPost)
     }
   };
 

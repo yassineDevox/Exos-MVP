@@ -14,13 +14,6 @@ export class NewPost {
     this.userId = userId;
     this.type = type;
   }
-
-  isEmpty = () => {
-    for (const prop in this) {
-      if(this[prop]=="") return true;
-    }
-    return false;
-  }
 }
 
 export default class PostModel extends NewPost {

@@ -1,3 +1,7 @@
+/* HEADER  */
+.search input:focus{
+  outline: none;
+}
 /* add post style customization */
 
 form.add-post .btn-success {

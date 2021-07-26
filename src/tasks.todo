@@ -28,4 +28,14 @@ fix issues for production:
         ☐ send all post's data to the server   
         ☐ wait for the notification of the server (post added event)  
 
-    
+    frontend task yassine:
+        ✔ search for something (react f) @done(21-07-16 13:55)
+        ☐ add post feature @started(21-07-26 17:14)
+        ☐ save post / get likes comments & solutions
+        
+
+    Backend task zouhaire :
+        ☐ verification d'email  
+        ☐ mot de pass oublier 
+        ☐ filtrer publication par niveau 
+        ☐ ajouter spring security pour la partie JWT
